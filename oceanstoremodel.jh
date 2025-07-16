@@ -1,0 +1,171 @@
+// ENUMS
+enum ItemActionType {
+  SOLD,
+  RECEIVED,
+  STOCKED,
+  RETURNED,
+  CUSTOM
+}
+
+enum PaymentDirection {
+  TO_SUPPLIER,
+  FROM_CUSTOMER
+}
+
+// ENTITIES
+
+@EnableAudit 
+entity ProductCategory {
+  nameAr String required,
+  nameEn String required,
+  logo ImageBlob
+}
+
+@EnableAudit 
+entity Brand {
+  nameAr String required,
+  nameEn String required,
+  logo ImageBlob
+}
+
+@EnableAudit 
+entity Product  {
+  nameAr String required,
+  nameEn String required,
+  code String required minlength(2) maxlength(20),
+  quantity Integer required min(0),
+  unitPrice BigDecimal required min(0),
+  logo ImageBlob,
+  images TextBlob
+}
+
+@EnableAudit 
+entity Supplier  {
+  name String required minlength(2) maxlength(100),
+  code String required minlength(2) maxlength(20),
+  address String maxlength(255),
+  balance BigDecimal
+}
+
+@EnableAudit 
+entity Customer {
+  name String required minlength(2) maxlength(100),
+  code String required minlength(2) maxlength(20),
+  address String maxlength(255),
+  balance BigDecimal
+}
+
+@EnableAudit 
+entity Purchase {
+  date Instant required,
+  total BigDecimal min(0)
+}
+
+@EnableAudit 
+entity PurchaseItem {
+  quantity Integer required min(1),
+  unitPrice BigDecimal required min(0),
+  total BigDecimal required min(0)
+}
+
+@EnableAudit 
+entity Sale  {
+  date Instant required,
+  total BigDecimal required min(0),
+  discount BigDecimal min(0)
+}
+
+@EnableAudit 
+entity SaleItem {
+  quantity Integer required min(1),
+  unitPrice BigDecimal required min(0),
+  total BigDecimal required min(0)
+}
+
+@EnableAudit 
+entity PaymentTransaction {
+  date Instant required,
+  amount BigDecimal required min(0),
+  reference String,
+  direction PaymentDirection required
+}
+
+@EnableAudit 
+entity Bill {
+  reference String required,
+  issueDate Instant required,
+  dueDate Instant,
+  totalAmount BigDecimal min(0),
+  status String
+}
+
+@EnableAudit 
+entity Report {
+  name String required,
+  generatedAt Instant required,
+  description String,
+  filterData String
+}
+
+@EnableAudit 
+entity AuditLog {
+  entityName String required,
+  entityId String required,
+  action String required,
+  performedBy String required,
+  timestamp Instant required
+}
+
+@EnableAudit 
+entity DailyItemEntry {
+  date Instant required,
+  itemName String required,
+  quantity Integer required,
+  actionType ItemActionType required,
+  notes String
+}
+
+@EnableAudit 
+entity DayActivity {
+  date Instant required,
+  totalSales BigDecimal min(0),
+  totalPurchases BigDecimal min(0),
+  customNote String
+}
+
+@EnableAudit 
+entity InventoryLog {
+  date Instant required,
+  quantityChange Integer required,
+  reason String,
+  referenceId String,
+  referenceType String
+}
+
+// RELATIONSHIPS
+
+relationship ManyToOne {
+  Product{category} to ProductCategory,
+  Product{brand} to Brand,
+  PurchaseItem{purchase} to Purchase,
+  PurchaseItem{product} to Product,
+  SaleItem{sale} to Sale,
+  SaleItem{product} to Product,
+  Purchase{supplier} to Supplier,
+  Sale{customer} to Customer,
+  Bill{customer} to Customer,
+  Bill{sale} to Sale,
+  PaymentTransaction{supplier} to Supplier,
+  PaymentTransaction{customer} to Customer,
+  PaymentTransaction{purchase} to Purchase,
+  PaymentTransaction{sale} to Sale,
+  InventoryLog{product} to Product,
+  DailyItemEntry{product} to Product,
+  DayActivity{createdBy} to User
+}
+
+// OPTIONS
+
+dto * with mapstruct
+paginate * with pagination
+service all with serviceClass

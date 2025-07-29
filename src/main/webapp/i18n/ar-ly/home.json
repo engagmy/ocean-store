@@ -1,19 +1,19 @@
 {
   "home": {
-    "title": "أهلا وسهلا بك، جافا هبستر!",
-    "subtitle": "هذه صفحتك الرئيسية",
+    "title": "أهلاً وسهلاً بك، JHipster!",
+    "subtitle": "هذه هي صفحتك الرئيسية",
     "logged": {
-      "message": "قمت بتسجيل الدخول كمستخدم \"{{username}}\"."
+      "message": "لقد قمت بتسجيل الدخول كمستخدم \"{{username}}\"."
     },
     "question": "إذا كان لديك أي سؤال حول JHipster:",
     "link": {
-      "homepage": "JHipster homepage",
-      "stackoverflow": "JHipster on Stack Overflow",
-      "bugtracker": "JHipster bug tracker",
-      "chat": "JHipster public chat room",
-      "follow": "follow @jhipster on Twitter"
+      "homepage": "الصفحة الرئيسية لـ JHipster",
+      "stackoverflow": "JHipster على Stack Overflow",
+      "bugtracker": "متعقب الأخطاء لـ JHipster",
+      "chat": "غرفة الدردشة العامة لـ JHipster",
+      "follow": "تابع @jhipster على تويتر"
     },
-    "like": "إذا كنت تحب JHipster، لا تنسى أن تعطي لنا نجم على",
+    "like": "إذا كنت تحب JHipster، لا تنس أن تضع نجمة لنا على",
     "github": "GitHub"
   }
 }

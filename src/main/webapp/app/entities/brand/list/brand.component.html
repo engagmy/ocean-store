@@ -1,0 +1,147 @@
+<div>
+  <h2 id="page-heading" data-cy="BrandHeading">
+    <span jhiTranslate="inventorySystemApp.brand.home.title">Brands</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="inventorySystemApp.brand.home.refreshListLabel">تحديث القائمة</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-brand"
+        [routerLink]="['/brand/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="inventorySystemApp.brand.home.createLabel">إنشاء Brand جديد</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  <!--  <jhi-filter [filters]="filters" />-->
+
+  <jhi-filter-form
+    [filters]="filters"
+    [fields]="filterFields"
+    (filterSubmit)="handleNavigation(1, sortState(), filters.filterOptions)"
+    (filterReset)="handleNavigation(1, sortState(), filters.filterOptions)"
+  />
+
+  @if (brands().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="inventorySystemApp.brand.home.notFound">لم يتم العثور على Brands</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="name">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.brand.name">Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="active">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.brand.active">Active</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (brand of brands(); track trackId(brand)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/brand', brand.id, 'view']">{{ brand.id }}</a>
+              </td>
+              <td>{{ brand.name }}</td>
+              <td>
+                <input
+                  type="checkbox"
+                  class="form-check"
+                  name="active"
+                  id="field_active"
+                  data-cy="active"
+                  [checked]="brand.active"
+                  (click)="$event.preventDefault()"
+                />
+              </td>
+
+              <!--              <td>{{ brand.active }}</td>-->
+              <td class="text-end">
+                <div class="btn-group">
+                  <button
+                    type="submit"
+                    [routerLink]="['/product']"
+                    [queryParams]="{ 'filter[brandId.in]': brand.id }"
+                    class="btn btn-info btn-sm"
+                    data-cy="filterOtherEntityButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span
+                      class="d-none d-md-inline"
+                      jhiTranslate="entity.action.show"
+                      [translateValues]="{ otherEntity: ('inventorySystemApp.brand.product' | translate) }"
+                      >Show Product</span
+                    >
+                  </button>
+                  <a [routerLink]="['/brand', brand.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">عرض</span>
+                  </a>
+
+                  <a [routerLink]="['/brand', brand.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">تعديل</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(brand)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">حذف</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (brands().length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page, totalItems, itemsPerPage }" />
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,32 @@
+{
+  "inventorySystemApp": {
+    "cashTransaction": {
+      "home": {
+        "title": "Cash Transactions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Cash Transaction",
+        "createOrEditLabel": "Create or edit a Cash Transaction",
+        "notFound": "No Cash Transactions found"
+      },
+      "created": "A new Cash Transaction is created with identifier {{ param }}",
+      "updated": "A Cash Transaction is updated with identifier {{ param }}",
+      "deleted": "A Cash Transaction is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cash Transaction {{ id }}?"
+      },
+      "detail": {
+        "title": "Cash Transaction"
+      },
+      "id": "ID",
+      "date": "Date",
+      "amount": "Amount",
+      "type": "Type",
+      "reason": "Reason",
+      "active": "Active",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date"
+    }
+  }
+}

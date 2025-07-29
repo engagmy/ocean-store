@@ -1,0 +1,31 @@
+{
+  "inventorySystemApp": {
+    "salePayment": {
+      "home": {
+        "title": "Sale Payments",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Sale Payment",
+        "createOrEditLabel": "Create or edit a Sale Payment",
+        "notFound": "No Sale Payments found"
+      },
+      "created": "A new Sale Payment is created with identifier {{ param }}",
+      "updated": "A Sale Payment is updated with identifier {{ param }}",
+      "deleted": "A Sale Payment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sale Payment {{ id }}?"
+      },
+      "detail": {
+        "title": "Sale Payment"
+      },
+      "id": "ID",
+      "date": "Date",
+      "amount": "Amount",
+      "active": "Active",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "sale": "Sale"
+    }
+  }
+}

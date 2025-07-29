@@ -1,0 +1,35 @@
+{
+  "inventorySystemApp": {
+    "dailyCashDetail": {
+      "home": {
+        "title": "Daily Cash Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Daily Cash Detail",
+        "createOrEditLabel": "Create or edit a Daily Cash Detail",
+        "notFound": "No Daily Cash Details found"
+      },
+      "created": "A new Daily Cash Detail is created with identifier {{ param }}",
+      "updated": "A Daily Cash Detail is updated with identifier {{ param }}",
+      "deleted": "A Daily Cash Detail is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Daily Cash Detail {{ id }}?"
+      },
+      "detail": {
+        "title": "Daily Cash Detail"
+      },
+      "id": "ID",
+      "type": "Type",
+      "referenceId": "Reference Id",
+      "referenceType": "Reference Type",
+      "amount": "Amount",
+      "description": "Description",
+      "timestamp": "Timestamp",
+      "active": "Active",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "dailyCashReconciliation": "Daily Cash Reconciliation"
+    }
+  }
+}

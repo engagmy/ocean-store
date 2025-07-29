@@ -1,0 +1,38 @@
+{
+  "inventorySystemApp": {
+    "dailyCashReconciliation": {
+      "home": {
+        "title": "تسويات النقد اليومية",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء تسوية نقدية يومية جديدة",
+        "createOrEditLabel": "إنشاء أو تعديل تسوية نقدية يومية",
+        "notFound": "لم يتم العثور على تسويات نقدية يومية"
+      },
+      "created": "تم إنشاء تسوية نقدية يومية جديدة بالمعرف {{ param }}",
+      "updated": "تم تحديث التسوية النقدية اليومية بالمعرف {{ param }}",
+      "deleted": "تم حذف التسوية النقدية اليومية بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف التسوية النقدية اليومية {{ id }}؟"
+      },
+      "detail": {
+        "title": "تسوية النقد اليومية"
+      },
+      "id": "المعرف",
+      "date": "التاريخ",
+      "openingBalance": "الرصيد الافتتاحي",
+      "totalSales": "إجمالي المبيعات",
+      "totalPurchases": "إجمالي المشتريات",
+      "totalSalaryPaid": "إجمالي الرواتب المدفوعة",
+      "ownerDeposits": "إيداعات المالك",
+      "withdrawals": "السحوبات",
+      "closingBalance": "الرصيد الختامي",
+      "notes": "ملاحظات",
+      "active": "نشط",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل",
+      "dailyCashDetail": "تفاصيل النقد اليومية"
+    }
+  }
+}

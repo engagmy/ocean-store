@@ -1,0 +1,38 @@
+{
+  "inventorySystemApp": {
+    "dailyCashReconciliation": {
+      "home": {
+        "title": "Daily Cash Reconciliations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Daily Cash Reconciliation",
+        "createOrEditLabel": "Create or edit a Daily Cash Reconciliation",
+        "notFound": "No Daily Cash Reconciliations found"
+      },
+      "created": "A new Daily Cash Reconciliation is created with identifier {{ param }}",
+      "updated": "A Daily Cash Reconciliation is updated with identifier {{ param }}",
+      "deleted": "A Daily Cash Reconciliation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Daily Cash Reconciliation {{ id }}?"
+      },
+      "detail": {
+        "title": "Daily Cash Reconciliation"
+      },
+      "id": "ID",
+      "date": "Date",
+      "openingBalance": "Opening Balance",
+      "totalSales": "Total Sales",
+      "totalPurchases": "Total Purchases",
+      "totalSalaryPaid": "Total Salary Paid",
+      "ownerDeposits": "Owner Deposits",
+      "withdrawals": "Withdrawals",
+      "closingBalance": "Closing Balance",
+      "notes": "Notes",
+      "active": "Active",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "dailyCashDetail": "Daily Cash Detail"
+    }
+  }
+}

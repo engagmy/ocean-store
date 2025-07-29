@@ -15,6 +15,7 @@ import {
   faHeart,
   faHome,
   faList,
+  faListAlt,
   faLock,
   faPencilAlt,
   faPlus,
@@ -79,5 +80,6 @@ export const fontAwesomeIcons = [
   faUsers,
   faUsersCog,
   faWrench,
+  faListAlt,
   // jhipster-needle-add-icon-import
 ];

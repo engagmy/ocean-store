@@ -1,0 +1,271 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-daily-cash-detail-heading"
+        data-cy="DailyCashDetailCreateUpdateHeading"
+        jhiTranslate="inventorySystemApp.dailyCashDetail.home.createOrEditLabel"
+      >
+        إنشاء أو تعديل Daily Cash Detail
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="inventorySystemApp.dailyCashDetail.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        @let typeRef = editForm.get('type')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_type" jhiTranslate="inventorySystemApp.dailyCashDetail.type">Type</label>
+          <select class="form-control" name="type" formControlName="type" id="field_type" data-cy="type">
+            <option [ngValue]="null">{{ 'inventorySystemApp.CashTransactionType.null' | translate }}</option>
+            @for (cashTransactionType of cashTransactionTypeValues; track $index) {
+              <option [value]="cashTransactionType">
+                {{ 'inventorySystemApp.CashTransactionType.' + cashTransactionType | translate }}
+              </option>
+            }
+          </select>
+          @if (typeRef.invalid && (typeRef.dirty || typeRef.touched)) {
+            <div>
+              @if (editForm.get('type')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">هذا الحقل مطلوب.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let referenceIdRef = editForm.get('referenceId')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_referenceId" jhiTranslate="inventorySystemApp.dailyCashDetail.referenceId"
+            >Reference Id</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="referenceId"
+            id="field_referenceId"
+            data-cy="referenceId"
+            formControlName="referenceId"
+          />
+          @if (referenceIdRef.invalid && (referenceIdRef.dirty || referenceIdRef.touched)) {
+            <div>
+              @if (editForm.get('referenceId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">هذا الحقل مطلوب.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('referenceId')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >هذا الحقل يجب أن يكون رقم.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let referenceTypeRef = editForm.get('referenceType')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_referenceType" jhiTranslate="inventorySystemApp.dailyCashDetail.referenceType"
+            >Reference Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="referenceType"
+            id="field_referenceType"
+            data-cy="referenceType"
+            formControlName="referenceType"
+          />
+          @if (referenceTypeRef.invalid && (referenceTypeRef.dirty || referenceTypeRef.touched)) {
+            <div>
+              @if (editForm.get('referenceType')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">هذا الحقل مطلوب.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let amountRef = editForm.get('amount')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_amount" jhiTranslate="inventorySystemApp.dailyCashDetail.amount">Amount</label>
+          <input type="number" class="form-control" name="amount" id="field_amount" data-cy="amount" formControlName="amount" />
+          @if (amountRef.invalid && (amountRef.dirty || amountRef.touched)) {
+            <div>
+              @if (editForm.get('amount')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">هذا الحقل مطلوب.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('amount')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >هذا الحقل يجب أن يكون رقم.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_description" jhiTranslate="inventorySystemApp.dailyCashDetail.description"
+            >Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        @let timestampRef = editForm.get('timestamp')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_timestamp" jhiTranslate="inventorySystemApp.dailyCashDetail.timestamp">Timestamp</label>
+          <div class="d-flex">
+            <input
+              id="field_timestamp"
+              data-cy="timestamp"
+              type="datetime-local"
+              class="form-control"
+              name="timestamp"
+              formControlName="timestamp"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          @if (timestampRef.invalid && (timestampRef.dirty || timestampRef.touched)) {
+            <div>
+              @if (editForm.get('timestamp')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">هذا الحقل مطلوب.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('timestamp')?.errors?.datetimelocal"
+                jhiTranslate="entity.validation.datetimelocal"
+                >هذا الحقل يجب أن يكون تاريخ ووقت.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_active" jhiTranslate="inventorySystemApp.dailyCashDetail.active">Active</label>
+          <input type="checkbox" class="form-check" name="active" id="field_active" data-cy="active" formControlName="active" />
+        </div>
+
+        @if (editForm.controls.createdBy.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_createdBy" jhiTranslate="inventorySystemApp.dailyCashDetail.createdBy">Created By</label>
+            <input
+              type="text"
+              class="form-control"
+              name="createdBy"
+              id="field_createdBy"
+              data-cy="createdBy"
+              formControlName="createdBy"
+              [readonly]="true"
+            />
+          </div>
+        }
+
+        @if (editForm.controls.createdDate.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_createdDate" jhiTranslate="inventorySystemApp.dailyCashDetail.createdDate"
+              >Created Date</label
+            >
+            <div class="d-flex">
+              <input
+                id="field_createdDate"
+                data-cy="createdDate"
+                type="datetime-local"
+                class="form-control"
+                name="createdDate"
+                formControlName="createdDate"
+                placeholder="YYYY-MM-DD HH:mm"
+                [readonly]="true"
+              />
+            </div>
+          </div>
+        }
+
+        @if (editForm.controls.lastModifiedBy.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_lastModifiedBy" jhiTranslate="inventorySystemApp.dailyCashDetail.lastModifiedBy"
+              >Last Modified By</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="lastModifiedBy"
+              id="field_lastModifiedBy"
+              data-cy="lastModifiedBy"
+              formControlName="lastModifiedBy"
+              [readonly]="true"
+            />
+          </div>
+        }
+
+        @if (editForm.controls.lastModifiedDate.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_lastModifiedDate" jhiTranslate="inventorySystemApp.dailyCashDetail.lastModifiedDate"
+              >Last Modified Date</label
+            >
+            <div class="d-flex">
+              <input
+                id="field_lastModifiedDate"
+                data-cy="lastModifiedDate"
+                type="datetime-local"
+                class="form-control"
+                name="lastModifiedDate"
+                formControlName="lastModifiedDate"
+                placeholder="YYYY-MM-DD HH:mm"
+                [readonly]="true"
+              />
+            </div>
+          </div>
+        }
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_dailyCashReconciliation"
+            jhiTranslate="inventorySystemApp.dailyCashDetail.dailyCashReconciliation"
+            >Daily Cash Reconciliation</label
+          >
+          <select
+            class="form-control"
+            id="field_dailyCashReconciliation"
+            data-cy="dailyCashReconciliation"
+            name="dailyCashReconciliation"
+            formControlName="dailyCashReconciliation"
+            [compareWith]="compareDailyCashReconciliation"
+          >
+            <option [ngValue]="null"></option>
+            @for (dailyCashReconciliationOption of dailyCashReconciliationsSharedCollection; track $index) {
+              <option [ngValue]="dailyCashReconciliationOption">{{ dailyCashReconciliationOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">الغاء</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">حفظ</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

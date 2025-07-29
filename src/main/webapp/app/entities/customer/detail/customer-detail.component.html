@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (customer(); as customerRef) {
+      <div>
+        <h2 data-cy="customerDetailsHeading"><span jhiTranslate="inventorySystemApp.customer.detail.title">Customer</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ customerRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.customer.name">Name</span></dt>
+          <dd>
+            <span>{{ customerRef.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.customer.phone">Phone</span></dt>
+          <dd>
+            <span>{{ customerRef.phone }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.customer.address">Address</span></dt>
+          <dd>
+            <span>{{ customerRef.address }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.customer.active">Active</span></dt>
+          <dd>
+            <span>{{ customerRef.active }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.customer.createdBy">Created By</span></dt>
+          <dd>
+            <span>{{ customerRef.createdBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.customer.createdDate">Created Date</span></dt>
+          <dd>
+            <span>{{ customerRef.createdDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.customer.lastModifiedBy">Last Modified By</span></dt>
+          <dd>
+            <span>{{ customerRef.lastModifiedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.customer.lastModifiedDate">Last Modified Date</span></dt>
+          <dd>
+            <span>{{ customerRef.lastModifiedDate | formatMediumDatetime }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">رجوع</span>
+        </button>
+
+        <button type="button" [routerLink]="['/customer', customerRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">تعديل</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "inventorySystemApp": {
+    "InventoryActionType": {
+      "null": "",
+      "STOCK_IN": "إدخال مخزون",
+      "STOCK_OUT": "إخراج مخزون",
+      "RETURN": "مرتجع"
+    }
+  }
+}

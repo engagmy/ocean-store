@@ -1,0 +1,13 @@
+{
+  "inventorySystemApp": {
+    "CashTransactionType": {
+      "null": "",
+      "OWNER_DEPOSIT": "OWNER_DEPOSIT",
+      "OWNER_WITHDRAWAL": "OWNER_WITHDRAWAL",
+      "PRODUCT_SALE": "PRODUCT_SALE",
+      "PRODUCT_PURCHASE": "PRODUCT_PURCHASE",
+      "SALARY_PAYMENT": "SALARY_PAYMENT",
+      "OTHER": "OTHER"
+    }
+  }
+}

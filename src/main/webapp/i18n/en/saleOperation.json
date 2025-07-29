@@ -1,0 +1,36 @@
+{
+  "inventorySystemApp": {
+    "saleOperation": {
+      "home": {
+        "title": "Sale Operations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Sale Operation",
+        "createOrEditLabel": "Create or edit a Sale Operation",
+        "notFound": "No Sale Operations found"
+      },
+      "created": "A new Sale Operation is created with identifier {{ param }}",
+      "updated": "A Sale Operation is updated with identifier {{ param }}",
+      "deleted": "A Sale Operation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sale Operation {{ id }}?"
+      },
+      "detail": {
+        "title": "Sale Operation"
+      },
+      "id": "ID",
+      "date": "Date",
+      "totalQuantity": "Total Quantity",
+      "totalAmount": "Total Amount",
+      "totalDiscount": "Total Discount",
+      "grandTotal": "Grand Total",
+      "active": "Active",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "bill": "Bill",
+      "customer": "Customer",
+      "sale": "Sale"
+    }
+  }
+}

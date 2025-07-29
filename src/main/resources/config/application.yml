@@ -92,10 +92,10 @@ management:
 
 spring:
   application:
-    name: oceanStore
+    name: InventorySystem
   docker:
     compose:
-      enabled: true
+      enabled: false
       lifecycle-management: start-only
       file: src/main/docker/services.yml
   profiles:
@@ -152,13 +152,13 @@ spring:
           authorities-claim-name: auth
   task:
     execution:
-      thread-name-prefix: ocean-store-task-
+      thread-name-prefix: inventory-system-task-
       pool:
         core-size: 2
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: ocean-store-scheduling-
+      thread-name-prefix: inventory-system-scheduling-
       pool:
         size: 2
   thymeleaf:
@@ -189,7 +189,7 @@ info:
 
 jhipster:
   clientApp:
-    name: 'oceanStoreApp'
+    name: 'inventorySystemApp'
   # By default CORS is disabled. Uncomment to enable.
   # cors:
   #   allowed-origins: "http://localhost:8100,http://localhost:9000"
@@ -199,12 +199,12 @@ jhipster:
   #   allow-credentials: true
   #   max-age: 1800
   mail:
-    from: oceanStore@localhost
+    from: InventorySystem@localhost
   api-docs:
     default-include-pattern: /api/**
     management-include-pattern: /management/**
-    title: Ocean Store API
-    description: Ocean Store API documentation
+    title: Inventory System API
+    description: Inventory System API documentation
     version: 0.0.1
     terms-of-service-url:
     contact-name:

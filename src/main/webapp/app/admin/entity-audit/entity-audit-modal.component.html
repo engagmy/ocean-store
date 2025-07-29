@@ -1,0 +1,32 @@
+<div class="modal-header">
+  <h4 class="modal-title" jhiTranslate="entityAudit.detail.title">Audit Details</h4>
+
+  <span class="btn btn-close" data-dismiss="modal" aria-hidden="true" (click)="activeModal.dismiss('closed')"></span>
+</div>
+<div class="modal-body pad">
+  <div>
+    <strong jhiTranslate="entityAudit.detail.action" [translateValues]="{ action: action }"
+      >{{ action }} action was performed on below data</strong
+    >
+    <br /><br />
+
+    <del class="ngx-diff-light-theme" jhiTranslate="entityAudit.detail.old">Old/Removed value</del>
+    &nbsp;
+    <ins class="ngx-diff-light-theme" jhiTranslate="entityAudit.detail.new">New/Added value</ins>
+  </div>
+  <br />
+
+  <label for="changelogDiff" jhiTranslate="entityAudit.detail.changedFields">Changed Fields</label>
+  <ngx-unified-diff id="changelogDiff" *ngIf="left && right" class="ngx-diff-light-theme" [before]="left" [after]="right" />
+</div>
+<div class="modal-footer">
+  <button
+    data-dismiss="modal"
+    class="btn btn-secondary float-left"
+    type="button"
+    (click)="activeModal.dismiss('closed')"
+    jhiTranslate="entityAudit.detail.close"
+  >
+    Close
+  </button>
+</div>

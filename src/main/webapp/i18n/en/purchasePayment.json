@@ -1,0 +1,31 @@
+{
+  "inventorySystemApp": {
+    "purchasePayment": {
+      "home": {
+        "title": "Purchase Payments",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Purchase Payment",
+        "createOrEditLabel": "Create or edit a Purchase Payment",
+        "notFound": "No Purchase Payments found"
+      },
+      "created": "A new Purchase Payment is created with identifier {{ param }}",
+      "updated": "A Purchase Payment is updated with identifier {{ param }}",
+      "deleted": "A Purchase Payment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Purchase Payment {{ id }}?"
+      },
+      "detail": {
+        "title": "Purchase Payment"
+      },
+      "id": "ID",
+      "date": "Date",
+      "amount": "Amount",
+      "active": "Active",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "purchase": "Purchase"
+    }
+  }
+}

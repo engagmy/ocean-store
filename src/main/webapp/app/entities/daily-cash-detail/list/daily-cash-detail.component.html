@@ -1,0 +1,220 @@
+<div>
+  <h2 id="page-heading" data-cy="DailyCashDetailHeading">
+    <span jhiTranslate="inventorySystemApp.dailyCashDetail.home.title">Daily Cash Details</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="inventorySystemApp.dailyCashDetail.home.refreshListLabel">تحديث القائمة</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-daily-cash-detail"
+        [routerLink]="['/daily-cash-detail/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="inventorySystemApp.dailyCashDetail.home.createLabel">إنشاء Daily Cash Detail جديد</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  <jhi-filter [filters]="filters" />
+
+  @if (dailyCashDetails().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="inventorySystemApp.dailyCashDetail.home.notFound">لم يتم العثور على Daily Cash Details</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="type">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.dailyCashDetail.type">Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="referenceId">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.dailyCashDetail.referenceId">Reference Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="referenceType">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.dailyCashDetail.referenceType">Reference Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="amount">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.dailyCashDetail.amount">Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="description">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.dailyCashDetail.description">Description</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="timestamp">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.dailyCashDetail.timestamp">Timestamp</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="active">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.dailyCashDetail.active">Active</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="createdBy">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.dailyCashDetail.createdBy">Created By</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="createdDate">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.dailyCashDetail.createdDate">Created Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastModifiedBy">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.dailyCashDetail.lastModifiedBy">Last Modified By</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastModifiedDate">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.dailyCashDetail.lastModifiedDate">Last Modified Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="dailyCashReconciliation.id">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.dailyCashDetail.dailyCashReconciliation">Daily Cash Reconciliation</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (dailyCashDetail of dailyCashDetails(); track trackId(dailyCashDetail)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/daily-cash-detail', dailyCashDetail.id, 'view']">{{ dailyCashDetail.id }}</a>
+              </td>
+              <td [jhiTranslate]="'inventorySystemApp.CashTransactionType.' + (dailyCashDetail.type ?? 'null')">
+                {{
+                  {
+                    null: '',
+                    OWNER_DEPOSIT: 'OWNER_DEPOSIT',
+                    OWNER_WITHDRAWAL: 'OWNER_WITHDRAWAL',
+                    PRODUCT_SALE: 'PRODUCT_SALE',
+                    PRODUCT_PURCHASE: 'PRODUCT_PURCHASE',
+                    SALARY_PAYMENT: 'SALARY_PAYMENT',
+                    OTHER: 'OTHER',
+                  }[dailyCashDetail.type ?? 'null']
+                }}
+              </td>
+              <td>{{ dailyCashDetail.referenceId }}</td>
+              <td>{{ dailyCashDetail.referenceType }}</td>
+              <td>{{ dailyCashDetail.amount }}</td>
+              <td>{{ dailyCashDetail.description }}</td>
+              <td>{{ dailyCashDetail.timestamp | formatMediumDatetime }}</td>
+              <td>{{ dailyCashDetail.active }}</td>
+              <td>{{ dailyCashDetail.createdBy }}</td>
+              <td>{{ dailyCashDetail.createdDate | formatMediumDatetime }}</td>
+              <td>{{ dailyCashDetail.lastModifiedBy }}</td>
+              <td>{{ dailyCashDetail.lastModifiedDate | formatMediumDatetime }}</td>
+              <td>
+                @if (dailyCashDetail.dailyCashReconciliation) {
+                  <div>
+                    <a [routerLink]="['/daily-cash-reconciliation', dailyCashDetail.dailyCashReconciliation.id, 'view']">{{
+                      dailyCashDetail.dailyCashReconciliation.id
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/daily-cash-detail', dailyCashDetail.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">عرض</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/daily-cash-detail', dailyCashDetail.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">تعديل</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(dailyCashDetail)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">حذف</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (dailyCashDetails().length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page, totalItems, itemsPerPage }" />
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

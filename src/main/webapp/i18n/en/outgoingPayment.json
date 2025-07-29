@@ -1,0 +1,32 @@
+{
+  "inventorySystemApp": {
+    "outgoingPayment": {
+      "home": {
+        "title": "Outgoing Payments",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Outgoing Payment",
+        "createOrEditLabel": "Create or edit a Outgoing Payment",
+        "notFound": "No Outgoing Payments found"
+      },
+      "created": "A new Outgoing Payment is created with identifier {{ param }}",
+      "updated": "A Outgoing Payment is updated with identifier {{ param }}",
+      "deleted": "A Outgoing Payment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Outgoing Payment {{ id }}?"
+      },
+      "detail": {
+        "title": "Outgoing Payment"
+      },
+      "id": "ID",
+      "date": "Date",
+      "amount": "Amount",
+      "reason": "Reason",
+      "notes": "Notes",
+      "active": "Active",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date"
+    }
+  }
+}

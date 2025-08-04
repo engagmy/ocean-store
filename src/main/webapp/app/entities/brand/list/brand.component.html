@@ -74,18 +74,8 @@
               </td>
               <td>{{ brand.name }}</td>
               <td>
-                <input
-                  type="checkbox"
-                  class="form-check"
-                  name="active"
-                  id="field_active"
-                  data-cy="active"
-                  [checked]="brand.active"
-                  (click)="$event.preventDefault()"
-                />
+                <i class="pi" [ngClass]="brand.active ? 'pi-check-square' : 'pi-square'"></i>
               </td>
-
-              <!--              <td>{{ brand.active }}</td>-->
               <td class="text-end">
                 <div class="btn-group">
                   <button

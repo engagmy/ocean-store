@@ -21,7 +21,7 @@
           </dd>
           <dt><span jhiTranslate="inventorySystemApp.brand.active">Active</span></dt>
           <dd>
-            <span>{{ brandRef.active }}</span>
+            <i class="pi" [ngClass]="brandRef.active ? 'pi-check-square' : 'pi-square'"></i>
           </dd>
           <dt><span jhiTranslate="inventorySystemApp.brand.createdBy">Created By</span></dt>
           <dd>

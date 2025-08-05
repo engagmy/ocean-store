@@ -1,0 +1,219 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-sale-heading" data-cy="SaleCreateUpdateHeading" jhiTranslate="inventorySystemApp.sale.home.createOrEditLabel">
+        إنشاء أو تعديل Sale
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="inventorySystemApp.sale.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_productName" jhiTranslate="inventorySystemApp.sale.productName">Product Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="productName"
+            id="field_productName"
+            data-cy="productName"
+            formControlName="productName"
+          />
+        </div>
+
+        @let quantityRef = editForm.get('quantity')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_quantity" jhiTranslate="inventorySystemApp.sale.quantity">Quantity</label>
+          <input type="number" class="form-control" name="quantity" id="field_quantity" data-cy="quantity" formControlName="quantity" />
+          @if (quantityRef.invalid && (quantityRef.dirty || quantityRef.touched)) {
+            <div>
+              @if (editForm.get('quantity')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">هذا الحقل مطلوب.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('quantity')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >هذا الحقل يجب أن يكون رقم.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let unitPriceRef = editForm.get('unitPrice')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_unitPrice" jhiTranslate="inventorySystemApp.sale.unitPrice">Unit Price</label>
+          <input type="number" class="form-control" name="unitPrice" id="field_unitPrice" data-cy="unitPrice" formControlName="unitPrice" />
+          @if (unitPriceRef.invalid && (unitPriceRef.dirty || unitPriceRef.touched)) {
+            <div>
+              @if (editForm.get('unitPrice')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">هذا الحقل مطلوب.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('unitPrice')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >هذا الحقل يجب أن يكون رقم.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_discount" jhiTranslate="inventorySystemApp.sale.discount">Discount</label>
+          <input type="number" class="form-control" name="discount" id="field_discount" data-cy="discount" formControlName="discount" />
+        </div>
+
+        @let lineTotalRef = editForm.get('lineTotal')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_lineTotal" jhiTranslate="inventorySystemApp.sale.lineTotal">Line Total</label>
+          <input type="number" class="form-control" name="lineTotal" id="field_lineTotal" data-cy="lineTotal" formControlName="lineTotal" />
+          @if (lineTotalRef.invalid && (lineTotalRef.dirty || lineTotalRef.touched)) {
+            <div>
+              @if (editForm.get('lineTotal')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">هذا الحقل مطلوب.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('lineTotal')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >هذا الحقل يجب أن يكون رقم.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_active" jhiTranslate="inventorySystemApp.sale.active">Active</label>
+          <input type="checkbox" class="form-check" name="active" id="field_active" data-cy="active" formControlName="active" />
+        </div>
+
+        @if (editForm.controls.createdBy.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_createdBy" jhiTranslate="inventorySystemApp.sale.createdBy">Created By</label>
+            <input
+              type="text"
+              class="form-control"
+              name="createdBy"
+              id="field_createdBy"
+              data-cy="createdBy"
+              formControlName="createdBy"
+              [readonly]="true"
+            />
+          </div>
+        }
+
+        @if (editForm.controls.createdDate.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_createdDate" jhiTranslate="inventorySystemApp.sale.createdDate">Created Date</label>
+            <div class="d-flex">
+              <input
+                id="field_createdDate"
+                data-cy="createdDate"
+                type="datetime-local"
+                class="form-control"
+                name="createdDate"
+                formControlName="createdDate"
+                placeholder="YYYY-MM-DD HH:mm"
+                [readonly]="true"
+              />
+            </div>
+          </div>
+        }
+
+        @if (editForm.controls.lastModifiedBy.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_lastModifiedBy" jhiTranslate="inventorySystemApp.sale.lastModifiedBy"
+              >Last Modified By</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="lastModifiedBy"
+              id="field_lastModifiedBy"
+              data-cy="lastModifiedBy"
+              formControlName="lastModifiedBy"
+              [readonly]="true"
+            />
+          </div>
+        }
+
+        @if (editForm.controls.lastModifiedDate.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_lastModifiedDate" jhiTranslate="inventorySystemApp.sale.lastModifiedDate"
+              >Last Modified Date</label
+            >
+            <div class="d-flex">
+              <input
+                id="field_lastModifiedDate"
+                data-cy="lastModifiedDate"
+                type="datetime-local"
+                class="form-control"
+                name="lastModifiedDate"
+                formControlName="lastModifiedDate"
+                placeholder="YYYY-MM-DD HH:mm"
+                [readonly]="true"
+              />
+            </div>
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_saleOperation" jhiTranslate="inventorySystemApp.sale.saleOperation">Sale Operation</label>
+          <select
+            class="form-control"
+            id="field_saleOperation"
+            data-cy="saleOperation"
+            name="saleOperation"
+            formControlName="saleOperation"
+            [compareWith]="compareSaleOperation"
+          >
+            <option [ngValue]="null"></option>
+            @for (saleOperationOption of saleOperationsSharedCollection; track $index) {
+              <option [ngValue]="saleOperationOption">{{ saleOperationOption.id }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_product" jhiTranslate="inventorySystemApp.sale.product">Product</label>
+          <select
+            class="form-control"
+            id="field_product"
+            data-cy="product"
+            name="product"
+            formControlName="product"
+            [compareWith]="compareProduct"
+          >
+            <option [ngValue]="null"></option>
+            @for (productOption of productsSharedCollection; track $index) {
+              <option [ngValue]="productOption">{{ productOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">الغاء</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">حفظ</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

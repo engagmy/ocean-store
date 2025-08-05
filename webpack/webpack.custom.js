@@ -22,7 +22,7 @@ module.exports = async (config, options, targetOptions) => {
   if (config.mode === 'development') {
     config.plugins.push(
       new WebpackNotifierPlugin({
-        title: 'Ocean Store',
+        title: 'Inventory System',
         contentImage: path.join(__dirname, 'logo-jhipster.png'),
       }),
     );

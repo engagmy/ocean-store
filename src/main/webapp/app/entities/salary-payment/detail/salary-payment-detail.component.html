@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (salaryPayment(); as salaryPaymentRef) {
+      <div>
+        <h2 data-cy="salaryPaymentDetailsHeading">
+          <span jhiTranslate="inventorySystemApp.salaryPayment.detail.title">Salary Payment</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ salaryPaymentRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.salaryPayment.date">Date</span></dt>
+          <dd>
+            <span>{{ salaryPaymentRef.date | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.salaryPayment.amount">Amount</span></dt>
+          <dd>
+            <span>{{ salaryPaymentRef.amount }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.salaryPayment.active">Active</span></dt>
+          <dd>
+            <span>{{ salaryPaymentRef.active }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.salaryPayment.createdBy">Created By</span></dt>
+          <dd>
+            <span>{{ salaryPaymentRef.createdBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.salaryPayment.createdDate">Created Date</span></dt>
+          <dd>
+            <span>{{ salaryPaymentRef.createdDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.salaryPayment.lastModifiedBy">Last Modified By</span></dt>
+          <dd>
+            <span>{{ salaryPaymentRef.lastModifiedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.salaryPayment.lastModifiedDate">Last Modified Date</span></dt>
+          <dd>
+            <span>{{ salaryPaymentRef.lastModifiedDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.salaryPayment.employee">Employee</span></dt>
+          <dd>
+            @if (salaryPayment()!.employee) {
+              <div>
+                <a [routerLink]="['/employee', salaryPayment()!.employee?.id, 'view']">{{ salaryPaymentRef.employee?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">رجوع</span>
+        </button>
+
+        <button type="button" [routerLink]="['/salary-payment', salaryPaymentRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">تعديل</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

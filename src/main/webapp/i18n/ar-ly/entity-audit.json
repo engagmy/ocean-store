@@ -1,0 +1,49 @@
+{
+  "global": {
+    "menu": {
+      "admin": {
+        "entityAudit": "تدقيق الكيانات"
+      }
+    }
+  },
+  "entityAudit": {
+    "home": {
+      "title": "سجل تدقيق الكيانات",
+      "filter": "تصفية",
+      "entityOrTable": "الكيان/الجدول",
+      "limitTo": "الحد الأقصى",
+      "loadChangeList": "تحميل قائمة التغييرات"
+    },
+    "result": {
+      "showInfo": "آخر <strong>{{ limit }}</strong> تغييرات على <strong>{{ entity }}</strong>",
+      "searchFieldLabel": "تصفية:",
+      "globalFilter": "تصفية عامة",
+      "entityIdFilter": "تصفية حسب معرف الكيان",
+      "tableHeader": {
+        "entityId": "معرف الكيان",
+        "action": "الإجراء",
+        "version": "الإصدار",
+        "value": "القيمة",
+        "modifiedDate": "تاريخ التعديل",
+        "modifiedBy": "تم التعديل بواسطة"
+      },
+      "tableBody": {
+        "field": "الحقل",
+        "value": "القيمة",
+        "viewDetails": "عرض تفاصيل التغيير"
+      },
+      "noDataFound": "لا توجد بيانات مطابقة للفلاتر",
+      "firstAuditEntry": "لا توجد نسخة سابقة لهذا الإدخال.\nهذا هو أول إدخال تدقيق تم تسجيله لهذا الكائن."
+    },
+    "detail": {
+      "close": "إغلاق",
+      "title": "تفاصيل التدقيق",
+      "action": "تم تنفيذ إجراء {{action}} على البيانات التالية",
+      "old": "القيمة القديمة/المحذوفة",
+      "new": "القيمة الجديدة/المضافة",
+      "changedFields": "الحقول المتغيرة",
+      "allFields": "كل الحقول",
+      "done": "تم"
+    }
+  }
+}

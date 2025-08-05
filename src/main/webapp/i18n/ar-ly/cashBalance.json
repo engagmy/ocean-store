@@ -1,0 +1,31 @@
+{
+  "inventorySystemApp": {
+    "cashBalance": {
+      "home": {
+        "title": "الأرصدة النقدية",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء رصيد نقدي جديد",
+        "createOrEditLabel": "إنشاء أو تعديل رصيد نقدي",
+        "notFound": "لم يتم العثور على أرصدة نقدية"
+      },
+      "created": "تم إنشاء رصيد نقدي جديد بالمعرف {{ param }}",
+      "updated": "تم تحديث الرصيد النقدي بالمعرف {{ param }}",
+      "deleted": "تم حذف الرصيد النقدي بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف الرصيد النقدي {{ id }}؟"
+      },
+      "detail": {
+        "title": "الرصيد النقدي"
+      },
+      "id": "المعرف",
+      "available": "المتوفر",
+      "active": "نشط",
+      "lastUpdated": "آخر تحديث",
+      "notes": "ملاحظات",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل"
+    }
+  }
+}

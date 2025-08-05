@@ -1,0 +1,88 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (saleOperation(); as saleOperationRef) {
+      <div>
+        <h2 data-cy="saleOperationDetailsHeading">
+          <span jhiTranslate="inventorySystemApp.saleOperation.detail.title">Sale Operation</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ saleOperationRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.saleOperation.date">Date</span></dt>
+          <dd>
+            <span>{{ saleOperationRef.date | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.saleOperation.totalQuantity">Total Quantity</span></dt>
+          <dd>
+            <span>{{ saleOperationRef.totalQuantity }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.saleOperation.totalAmount">Total Amount</span></dt>
+          <dd>
+            <span>{{ saleOperationRef.totalAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.saleOperation.totalDiscount">Total Discount</span></dt>
+          <dd>
+            <span>{{ saleOperationRef.totalDiscount }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.saleOperation.grandTotal">Grand Total</span></dt>
+          <dd>
+            <span>{{ saleOperationRef.grandTotal }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.saleOperation.active">Active</span></dt>
+          <dd>
+            <span>{{ saleOperationRef.active }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.saleOperation.createdBy">Created By</span></dt>
+          <dd>
+            <span>{{ saleOperationRef.createdBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.saleOperation.createdDate">Created Date</span></dt>
+          <dd>
+            <span>{{ saleOperationRef.createdDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.saleOperation.lastModifiedBy">Last Modified By</span></dt>
+          <dd>
+            <span>{{ saleOperationRef.lastModifiedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.saleOperation.lastModifiedDate">Last Modified Date</span></dt>
+          <dd>
+            <span>{{ saleOperationRef.lastModifiedDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.saleOperation.bill">Bill</span></dt>
+          <dd>
+            @if (saleOperation()!.bill) {
+              <div>
+                <a [routerLink]="['/bill', saleOperation()!.bill?.id, 'view']">{{ saleOperationRef.bill?.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.saleOperation.customer">Customer</span></dt>
+          <dd>
+            @if (saleOperation()!.customer) {
+              <div>
+                <a [routerLink]="['/customer', saleOperation()!.customer?.id, 'view']">{{ saleOperationRef.customer?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">رجوع</span>
+        </button>
+
+        <button type="button" [routerLink]="['/sale-operation', saleOperationRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">تعديل</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

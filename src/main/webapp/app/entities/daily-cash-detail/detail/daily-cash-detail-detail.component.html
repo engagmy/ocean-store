@@ -1,0 +1,96 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (dailyCashDetail(); as dailyCashDetailRef) {
+      <div>
+        <h2 data-cy="dailyCashDetailDetailsHeading">
+          <span jhiTranslate="inventorySystemApp.dailyCashDetail.detail.title">Daily Cash Detail</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ dailyCashDetailRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashDetail.type">Type</span></dt>
+          <dd>
+            <span [jhiTranslate]="'inventorySystemApp.CashTransactionType.' + (dailyCashDetailRef.type ?? 'null')">{{
+              {
+                null: '',
+                OWNER_DEPOSIT: 'OWNER_DEPOSIT',
+                OWNER_WITHDRAWAL: 'OWNER_WITHDRAWAL',
+                PRODUCT_SALE: 'PRODUCT_SALE',
+                PRODUCT_PURCHASE: 'PRODUCT_PURCHASE',
+                SALARY_PAYMENT: 'SALARY_PAYMENT',
+                OTHER: 'OTHER',
+              }[dailyCashDetailRef.type ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashDetail.referenceId">Reference Id</span></dt>
+          <dd>
+            <span>{{ dailyCashDetailRef.referenceId }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashDetail.referenceType">Reference Type</span></dt>
+          <dd>
+            <span>{{ dailyCashDetailRef.referenceType }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashDetail.amount">Amount</span></dt>
+          <dd>
+            <span>{{ dailyCashDetailRef.amount }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashDetail.description">Description</span></dt>
+          <dd>
+            <span>{{ dailyCashDetailRef.description }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashDetail.timestamp">Timestamp</span></dt>
+          <dd>
+            <span>{{ dailyCashDetailRef.timestamp | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashDetail.active">Active</span></dt>
+          <dd>
+            <span>{{ dailyCashDetailRef.active }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashDetail.createdBy">Created By</span></dt>
+          <dd>
+            <span>{{ dailyCashDetailRef.createdBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashDetail.createdDate">Created Date</span></dt>
+          <dd>
+            <span>{{ dailyCashDetailRef.createdDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashDetail.lastModifiedBy">Last Modified By</span></dt>
+          <dd>
+            <span>{{ dailyCashDetailRef.lastModifiedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashDetail.lastModifiedDate">Last Modified Date</span></dt>
+          <dd>
+            <span>{{ dailyCashDetailRef.lastModifiedDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashDetail.dailyCashReconciliation">Daily Cash Reconciliation</span></dt>
+          <dd>
+            @if (dailyCashDetail()!.dailyCashReconciliation) {
+              <div>
+                <a [routerLink]="['/daily-cash-reconciliation', dailyCashDetail()!.dailyCashReconciliation?.id, 'view']">{{
+                  dailyCashDetailRef.dailyCashReconciliation?.id
+                }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">رجوع</span>
+        </button>
+
+        <button type="button" [routerLink]="['/daily-cash-detail', dailyCashDetailRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">تعديل</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "inventorySystemApp": {
+    "outgoingPayment": {
+      "home": {
+        "title": "المدفوعات الصادرة",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء دفعة صادرة جديدة",
+        "createOrEditLabel": "إنشاء أو تعديل دفعة صادرة",
+        "notFound": "لم يتم العثور على مدفوعات صادرة"
+      },
+      "created": "تم إنشاء دفعة صادرة جديدة بالمعرف {{ param }}",
+      "updated": "تم تحديث الدفعة الصادرة بالمعرف {{ param }}",
+      "deleted": "تم حذف الدفعة الصادرة بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف الدفعة الصادرة {{ id }}؟"
+      },
+      "detail": {
+        "title": "الدفعة الصادرة"
+      },
+      "id": "المعرف",
+      "date": "التاريخ",
+      "amount": "المبلغ",
+      "reason": "السبب",
+      "notes": "ملاحظات",
+      "active": "نشط",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل"
+    }
+  }
+}

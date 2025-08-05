@@ -1,0 +1,13 @@
+{
+  "inventorySystemApp": {
+    "CashTransactionType": {
+      "null": "",
+      "OWNER_DEPOSIT": "إيداع من المالك",
+      "OWNER_WITHDRAWAL": "سحب من المالك",
+      "PRODUCT_SALE": "بيع منتج",
+      "PRODUCT_PURCHASE": "شراء منتج",
+      "SALARY_PAYMENT": "دفع راتب",
+      "OTHER": "أخرى"
+    }
+  }
+}

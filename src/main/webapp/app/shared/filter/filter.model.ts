@@ -3,18 +3,34 @@ import { Subject } from 'rxjs';
 
 export interface IFilterOptions {
   readonly filterChanges: Subject<FilterOption[]>;
+
   get filterOptions(): IFilterOption[];
+
   hasAnyFilterSet(): boolean;
+
   clear(): boolean;
+
   initializeFromParams(params: ParamMap): boolean;
+
   addFilter(name: string, ...values: string[]): boolean;
+
   removeFilter(name: string, value: string): boolean;
+
+  getFilterOptionByName(name: string, add?: boolean): FilterOption | null;
 }
 
 export interface IFilterOption {
   name: string;
   values: string[];
+
   nameAsQueryParam(): string;
+}
+
+export interface FilterField {
+  key: string;
+  labelKey?: string;
+  type: 'text' | 'select';
+  options?: { value: string | number; label: string }[];
 }
 
 export class FilterOption implements IFilterOption {
@@ -145,9 +161,9 @@ export class FilterOptions implements IFilterOptions {
     return new FilterOptions(this.filterOptions.map(option => new FilterOption(option.name, option.values.concat())));
   }
 
-  protected getFilterOptionByName(name: string, add: true): FilterOption;
-  protected getFilterOptionByName(name: string, add?: false): FilterOption | null;
-  protected getFilterOptionByName(name: string, add = false): FilterOption | null {
+  getFilterOptionByName(name: string, add: true): FilterOption;
+  getFilterOptionByName(name: string, add?: false): FilterOption | null;
+  getFilterOptionByName(name: string, add = false): FilterOption | null {
     const addOption = (option: FilterOption): FilterOption => {
       this._filterOptions.push(option);
       return option;

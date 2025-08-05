@@ -1,0 +1,216 @@
+application {
+  config {
+    baseName InventorySystem
+    applicationType monolith
+    packageName com.agamy.inventory
+    authenticationType jwt
+    prodDatabaseType postgresql
+    devDatabaseType h2Disk
+    cacheProvider ehcache
+    enableHibernateCache true
+    buildTool maven
+    clientFramework angular
+    enableTranslation true
+    nativeLanguage ar-ly
+    languages [ar-ly, en]
+  }
+
+  entities *
+}
+
+enum InventoryActionType {
+  STOCK_IN,
+  STOCK_OUT,
+  RETURN
+}
+
+enum CashTransactionType {
+  OWNER_DEPOSIT,
+  OWNER_WITHDRAWAL,
+  PRODUCT_SALE,
+  PRODUCT_PURCHASE,
+  SALARY_PAYMENT,
+  OTHER
+}
+
+entity Brand {
+  name String required,
+  active Boolean
+}
+
+entity ProductCategory {
+  name String required,
+  active Boolean
+}
+
+entity Product {
+  name String required,
+  code String required minlength(2) maxlength(20),
+  quantity Integer required min(0),
+  unitPrice BigDecimal required,
+  costPrice BigDecimal required,
+  active Boolean
+}
+
+entity InventoryTransaction {
+  date Instant required,
+  type InventoryActionType required,
+  quantity Integer required,
+  active Boolean
+}
+
+entity Customer {
+  name String required,
+  phone String,
+  address String,
+  active Boolean
+}
+
+entity SaleOperation {
+  date Instant required,
+  totalQuantity Integer required,
+  totalAmount BigDecimal required,
+  totalDiscount BigDecimal,
+  grandTotal BigDecimal required,
+  active Boolean
+}
+
+entity Sale {
+  productName String,
+  quantity Integer required,
+  unitPrice BigDecimal required,
+  discount BigDecimal,
+  lineTotal BigDecimal required,
+  active Boolean
+}
+
+entity SalePayment {
+  date Instant required,
+  amount BigDecimal required,
+  active Boolean
+}
+
+entity PurchaseOperation {
+  date Instant required,
+  supplierInvoiceNo String,
+  totalQuantity Integer required,
+  totalAmount BigDecimal required,
+  grandTotal BigDecimal required,
+  active Boolean
+}
+
+entity Purchase {
+  productName String,
+  quantity Integer required,
+  unitPrice BigDecimal required,
+  lineTotal BigDecimal required,
+  active Boolean
+}
+
+entity PurchasePayment {
+  date Instant required,
+  amount BigDecimal required,
+  active Boolean
+}
+
+entity Bill {
+  billNumber String required,
+  date Instant required,
+  totalAmount BigDecimal required,
+  taxAmount BigDecimal,
+  discountAmount BigDecimal,
+  paidAmount BigDecimal,
+  dueAmount BigDecimal,
+  notes String,
+  active Boolean
+}
+
+entity Supplier {
+  name String required,
+  phone String,
+  address String,
+  active Boolean
+}
+
+entity Employee {
+  name String required,
+  jobTitle String,
+  salary BigDecimal required,
+  joinDate Instant,
+  active Boolean
+}
+
+entity SalaryPayment {
+  date Instant required,
+  amount BigDecimal required,
+  active Boolean
+}
+
+entity CashTransaction {
+  date Instant required,
+  amount BigDecimal required,
+  type CashTransactionType required,
+  reason String,
+  active Boolean
+}
+
+entity OutgoingPayment {
+  date Instant required,
+  amount BigDecimal required,
+  reason String,
+  notes String,
+  active Boolean
+}
+
+entity CashBalance {
+  available BigDecimal required,
+  lastUpdated Instant,
+  notes String,
+  active Boolean
+}
+
+entity DailyCashReconciliation {
+  date LocalDate required,
+  openingBalance BigDecimal,
+  totalSales BigDecimal,
+  totalPurchases BigDecimal,
+  totalSalaryPaid BigDecimal,
+  ownerDeposits BigDecimal,
+  withdrawals BigDecimal,
+  closingBalance BigDecimal,
+  notes String,
+  active Boolean
+}
+
+entity DailyCashDetail {
+  type CashTransactionType required,
+  referenceId Long required,
+  referenceType String required,
+  amount BigDecimal required,
+  description String,
+  timestamp Instant required,
+  active Boolean
+}
+
+relationship ManyToOne {
+  Product to Brand,
+  Product to ProductCategory,
+  InventoryTransaction to Product,
+  Sale to SaleOperation,
+  Sale to Product,
+  SalePayment to Sale,
+  Purchase to PurchaseOperation,
+  Purchase to Product,
+  Purchase to Supplier,
+  PurchasePayment to Purchase,
+  SalaryPayment to Employee,
+  DailyCashDetail to DailyCashReconciliation,
+  SaleOperation to Bill,
+  SaleOperation to Customer,
+  PurchaseOperation to Bill
+}
+
+paginate * with pagination
+service * with serviceClass
+dto * with mapstruct
+filter *

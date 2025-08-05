@@ -1,0 +1,35 @@
+{
+  "inventorySystemApp": {
+    "sale": {
+      "home": {
+        "title": "المبيعات",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء عملية بيع جديدة",
+        "createOrEditLabel": "إنشاء أو تعديل عملية بيع",
+        "notFound": "لم يتم العثور على عمليات بيع"
+      },
+      "created": "تم إنشاء عملية بيع جديدة بالمعرف {{ param }}",
+      "updated": "تم تحديث عملية البيع بالمعرف {{ param }}",
+      "deleted": "تم حذف عملية البيع بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف عملية البيع {{ id }}؟"
+      },
+      "detail": {
+        "title": "عملية البيع"
+      },
+      "id": "المعرف",
+      "date": "التاريخ",
+      "quantity": "الكمية",
+      "unitPrice": "سعر الوحدة",
+      "discount": "الخصم",
+      "total": "الإجمالي",
+      "active": "نشط",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل",
+      "product": "المنتج",
+      "salePayment": "دفعة البيع"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "inventorySystemApp": {
+    "inventoryTransaction": {
+      "home": {
+        "title": "حركات المخزون",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء حركة مخزون جديدة",
+        "createOrEditLabel": "إنشاء أو تعديل حركة مخزون",
+        "notFound": "لم يتم العثور على حركات مخزون"
+      },
+      "created": "تم إنشاء حركة مخزون جديدة بالمعرف {{ param }}",
+      "updated": "تم تحديث حركة المخزون بالمعرف {{ param }}",
+      "deleted": "تم حذف حركة المخزون بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف حركة المخزون {{ id }}؟"
+      },
+      "detail": {
+        "title": "حركة المخزون"
+      },
+      "id": "المعرف",
+      "date": "التاريخ",
+      "type": "النوع",
+      "quantity": "الكمية",
+      "active": "نشط",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل",
+      "product": "المنتج"
+    }
+  }
+}

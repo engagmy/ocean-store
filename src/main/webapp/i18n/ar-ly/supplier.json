@@ -1,0 +1,32 @@
+{
+  "inventorySystemApp": {
+    "supplier": {
+      "home": {
+        "title": "الموردون",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء مورد جديد",
+        "createOrEditLabel": "إنشاء أو تعديل مورد",
+        "notFound": "لم يتم العثور على موردين"
+      },
+      "created": "تم إنشاء مورد جديد بالمعرف {{ param }}",
+      "updated": "تم تحديث المورد بالمعرف {{ param }}",
+      "deleted": "تم حذف المورد بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف المورد {{ id }}؟"
+      },
+      "detail": {
+        "title": "المورد"
+      },
+      "id": "المعرف",
+      "name": "الاسم",
+      "phone": "رقم الهاتف",
+      "address": "العنوان",
+      "active": "نشط",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل",
+      "purchase": "الشراء"
+    }
+  }
+}

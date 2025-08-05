@@ -1,0 +1,30 @@
+{
+  "inventorySystemApp": {
+    "productCategory": {
+      "home": {
+        "title": "فئات المنتجات",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء فئة منتج جديدة",
+        "createOrEditLabel": "إنشاء أو تعديل فئة منتج",
+        "notFound": "لم يتم العثور على فئات منتجات"
+      },
+      "created": "تم إنشاء فئة منتج جديدة بالمعرف {{ param }}",
+      "updated": "تم تحديث فئة المنتج بالمعرف {{ param }}",
+      "deleted": "تم حذف فئة المنتج بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف فئة المنتج {{ id }}؟"
+      },
+      "detail": {
+        "title": "فئة المنتج"
+      },
+      "id": "المعرف",
+      "name": "الاسم",
+      "active": "نشط",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل",
+      "product": "المنتج"
+    }
+  }
+}

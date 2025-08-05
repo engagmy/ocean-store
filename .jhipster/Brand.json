@@ -1,0 +1,67 @@
+{
+  "annotations": {
+    "changelogDate": "20250727164655",
+    "enableAudit": true
+  },
+  "applications": ["InventorySystem"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean"
+    },
+    {
+      "auditField": true,
+      "autoGenerate": true,
+      "columnType": "varchar(50)",
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "nullable": false,
+      "readonly": true
+    },
+    {
+      "auditField": true,
+      "autoGenerate": true,
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "nullable": false,
+      "readonly": true
+    },
+    {
+      "auditField": true,
+      "autoGenerate": true,
+      "columnType": "varchar(50)",
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "nullable": false,
+      "readonly": true
+    },
+    {
+      "auditField": true,
+      "autoGenerate": true,
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "nullable": false,
+      "readonly": true
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Brand",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "brand",
+      "relationshipName": "product",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

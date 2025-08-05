@@ -1,0 +1,31 @@
+{
+  "inventorySystemApp": {
+    "purchasePayment": {
+      "home": {
+        "title": "مدفوعات الشراء",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء دفعة شراء جديدة",
+        "createOrEditLabel": "إنشاء أو تعديل دفعة شراء",
+        "notFound": "لم يتم العثور على مدفوعات الشراء"
+      },
+      "created": "تم إنشاء دفعة شراء جديدة بالمعرف {{ param }}",
+      "updated": "تم تحديث دفعة الشراء بالمعرف {{ param }}",
+      "deleted": "تم حذف دفعة الشراء بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف دفعة الشراء {{ id }}؟"
+      },
+      "detail": {
+        "title": "دفعة الشراء"
+      },
+      "id": "المعرف",
+      "date": "التاريخ",
+      "amount": "المبلغ",
+      "active": "نشط",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل",
+      "purchase": "الشراء"
+    }
+  }
+}

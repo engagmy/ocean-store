@@ -1,0 +1,74 @@
+{
+  "annotations": {
+    "changelogDate": "20250727170155",
+    "enableAudit": true
+  },
+  "applications": ["InventorySystem"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "CashTransactionType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "OWNER_DEPOSIT,OWNER_WITHDRAWAL,PRODUCT_SALE,PRODUCT_PURCHASE,SALARY_PAYMENT,OTHER"
+    },
+    {
+      "fieldName": "reason",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean"
+    },
+    {
+      "auditField": true,
+      "autoGenerate": true,
+      "columnType": "varchar(50)",
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "nullable": false,
+      "readonly": true
+    },
+    {
+      "auditField": true,
+      "autoGenerate": true,
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "nullable": false,
+      "readonly": true
+    },
+    {
+      "auditField": true,
+      "autoGenerate": true,
+      "columnType": "varchar(50)",
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "nullable": false,
+      "readonly": true
+    },
+    {
+      "auditField": true,
+      "autoGenerate": true,
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "nullable": false,
+      "readonly": true
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "CashTransaction",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

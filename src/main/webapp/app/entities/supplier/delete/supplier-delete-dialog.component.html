@@ -1,0 +1,28 @@
+@if (supplier) {
+  <form name="deleteForm" (ngSubmit)="confirmDelete(supplier.id!)">
+    <div class="modal-header">
+      <h4 class="modal-title" data-cy="supplierDeleteDialogHeading" jhiTranslate="entity.delete.title">تأكيد عملية الحذف</h4>
+    </div>
+
+    <div class="modal-body">
+      <jhi-alert-error />
+      <p
+        id="jhi-delete-supplier-heading"
+        jhiTranslate="inventorySystemApp.supplier.delete.question"
+        [translateValues]="{ id: supplier.id }"
+      >
+        هل أنت متأكد أنك تريد حذف Supplier {{ supplier.id }}؟
+      </p>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+        <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">الغاء</span>
+      </button>
+
+      <button id="jhi-confirm-delete-supplier" data-cy="entityConfirmDeleteButton" type="submit" class="btn btn-danger">
+        <fa-icon icon="times"></fa-icon>&nbsp;<span jhiTranslate="entity.action.delete">حذف</span>
+      </button>
+    </div>
+  </form>
+}

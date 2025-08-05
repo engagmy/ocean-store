@@ -32,6 +32,11 @@ const routes: Routes = [
     loadComponent: () => import('./metrics/metrics.component'),
     title: 'metrics.title',
   },
+  {
+    path: 'entity-audit',
+    title: 'entityAudit.home.title',
+    loadComponent: () => import('./entity-audit/entity-audit.component'),
+  },
   /* jhipster-needle-add-admin-route - JHipster will add admin routes here */
 ];
 

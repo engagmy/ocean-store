@@ -2,39 +2,52 @@
   "generator-jhipster": {
     "applicationType": "monolith",
     "authenticationType": "jwt",
-    "baseName": "oceanStore",
-    "blueprints": [],
+    "baseName": "InventorySystem",
+    "blueprints": [
+      {
+        "name": "generator-jhipster-entity-audit",
+        "version": "5.11.0"
+      }
+    ],
     "buildTool": "maven",
     "cacheProvider": "ehcache",
     "clientFramework": "angular",
-    "clientPackageManager": "npm",
-    "creationTimestamp": 1752661987407,
-    "databaseType": "sql",
-    "devDatabaseType": "postgresql",
+    "devDatabaseType": "h2Disk",
     "enableHibernateCache": true,
-    "enableSwaggerCodegen": false,
     "enableTranslation": true,
-    "entities": [],
-    "gitCompany": "",
-    "iaCTools": ["bicep", "terraform"],
-    "jhiPrefix": "jhi",
+    "entities": [
+      "Brand",
+      "ProductCategory",
+      "Product",
+      "InventoryTransaction",
+      "Customer",
+      "SaleOperation",
+      "Sale",
+      "SalePayment",
+      "PurchaseOperation",
+      "Purchase",
+      "PurchasePayment",
+      "Bill",
+      "Supplier",
+      "Employee",
+      "SalaryPayment",
+      "CashTransaction",
+      "OutgoingPayment",
+      "CashBalance",
+      "DailyCashReconciliation",
+      "DailyCashDetail"
+    ],
     "jhipsterVersion": "8.11.0",
-    "jwtSecretKey": "MTkwMGM0NDY3ZDE3NDU3MDcwOGM4NzM1ODg4OTQ1ZDVjODZkZWVjODNkZjZhOWE2ZGMyMGFlZmQ5OTY3ZWJkNmQ1Mjk4ZDgzODIzZWE2MjQ2YTQ5N2ZiZTMxMTJmYmM1NDQ0MjgzYmE0ZTM3NDdiOWE4MTEyNmVmZmE3ZjUzM2I=",
+    "jwtSecretKey": "ZGQ3OWYyNGZkNzc2MTJkNjVlNGFjZWUwZGY0NTliZWQyMDZjZmMxMGRhNDY3OTM2OWEzNTM2Yjg2YTUwMzllODRjNmUyNmUzYWQyOTM5OGViZWMxYjVmMzZlOTIxMGY5MGY1YzczZDYwOWM5ZGE4ZTQ3NzU5ZDY0MTJlZDI5NjY=",
     "languages": ["ar-ly", "en"],
-    "messageBroker": false,
+    "lastLiquibaseTimestamp": 1753635955000,
     "nativeLanguage": "ar-ly",
-    "packageFolder": "com/ocean/store",
-    "packageName": "com.ocean.store",
-    "prodDatabaseType": "postgresql",
-    "searchEngine": false,
-    "serverPort": 8080,
-    "serviceDiscoveryType": false,
-    "testFrameworks": [],
-    "useSass": true,
-    "websocket": false,
-    "withAdminUi": true
+    "packageName": "com.agamy.inventory",
+    "prodDatabaseType": "postgresql"
   },
-  "git-company": "engagmy",
-  "git-provider": "GitHub",
-  "repository-name": "ocean-store"
+  "generator-jhipster-entity-audit": {
+    "auditFramework": "custom",
+    "auditPage": true,
+    "entityAuditEventChangelogDate": "20250727164555"
+  }
 }

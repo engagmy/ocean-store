@@ -1,0 +1,184 @@
+<div>
+  <h2 id="page-heading" data-cy="InventoryTransactionHeading">
+    <span jhiTranslate="inventorySystemApp.inventoryTransaction.home.title">Inventory Transactions</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="inventorySystemApp.inventoryTransaction.home.refreshListLabel">تحديث القائمة</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-inventory-transaction"
+        [routerLink]="['/inventory-transaction/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="inventorySystemApp.inventoryTransaction.home.createLabel">إنشاء Inventory Transaction جديد</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  <jhi-filter [filters]="filters" />
+
+  @if (inventoryTransactions().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="inventorySystemApp.inventoryTransaction.home.notFound">لم يتم العثور على Inventory Transactions</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="date">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.inventoryTransaction.date">Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="type">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.inventoryTransaction.type">Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="quantity">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.inventoryTransaction.quantity">Quantity</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="active">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.inventoryTransaction.active">Active</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="createdBy">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.inventoryTransaction.createdBy">Created By</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="createdDate">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.inventoryTransaction.createdDate">Created Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastModifiedBy">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.inventoryTransaction.lastModifiedBy">Last Modified By</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastModifiedDate">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.inventoryTransaction.lastModifiedDate">Last Modified Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="product.id">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.inventoryTransaction.product">Product</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (inventoryTransaction of inventoryTransactions(); track trackId(inventoryTransaction)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/inventory-transaction', inventoryTransaction.id, 'view']">{{ inventoryTransaction.id }}</a>
+              </td>
+              <td>{{ inventoryTransaction.date | formatMediumDatetime }}</td>
+              <td [jhiTranslate]="'inventorySystemApp.InventoryActionType.' + (inventoryTransaction.type ?? 'null')">
+                {{ { null: '', STOCK_IN: 'STOCK_IN', STOCK_OUT: 'STOCK_OUT', RETURN: 'RETURN' }[inventoryTransaction.type ?? 'null'] }}
+              </td>
+              <td>{{ inventoryTransaction.quantity }}</td>
+              <td>{{ inventoryTransaction.active }}</td>
+              <td>{{ inventoryTransaction.createdBy }}</td>
+              <td>{{ inventoryTransaction.createdDate | formatMediumDatetime }}</td>
+              <td>{{ inventoryTransaction.lastModifiedBy }}</td>
+              <td>{{ inventoryTransaction.lastModifiedDate | formatMediumDatetime }}</td>
+              <td>
+                @if (inventoryTransaction.product) {
+                  <div>
+                    <a [routerLink]="['/product', inventoryTransaction.product.id, 'view']">{{ inventoryTransaction.product.id }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/inventory-transaction', inventoryTransaction.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">عرض</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/inventory-transaction', inventoryTransaction.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">تعديل</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(inventoryTransaction)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">حذف</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (inventoryTransactions().length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page, totalItems, itemsPerPage }" />
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,99 @@
+{
+  "annotations": {
+    "changelogDate": "20250727170455",
+    "enableAudit": true
+  },
+  "applications": ["InventorySystem"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "openingBalance",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "totalSales",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "totalPurchases",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "totalSalaryPaid",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "ownerDeposits",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "withdrawals",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "closingBalance",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "notes",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean"
+    },
+    {
+      "auditField": true,
+      "autoGenerate": true,
+      "columnType": "varchar(50)",
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "nullable": false,
+      "readonly": true
+    },
+    {
+      "auditField": true,
+      "autoGenerate": true,
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "nullable": false,
+      "readonly": true
+    },
+    {
+      "auditField": true,
+      "autoGenerate": true,
+      "columnType": "varchar(50)",
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "nullable": false,
+      "readonly": true
+    },
+    {
+      "auditField": true,
+      "autoGenerate": true,
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "nullable": false,
+      "readonly": true
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "DailyCashReconciliation",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "dailyCashDetail",
+      "otherEntityRelationshipName": "dailyCashReconciliation",
+      "relationshipName": "dailyCashDetail",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

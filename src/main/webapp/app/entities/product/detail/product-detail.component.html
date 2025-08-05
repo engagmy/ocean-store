@@ -1,0 +1,86 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (product(); as productRef) {
+      <div>
+        <h2 data-cy="productDetailsHeading"><span jhiTranslate="inventorySystemApp.product.detail.title">Product</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ productRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.product.name">Name</span></dt>
+          <dd>
+            <span>{{ productRef.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.product.code">Code</span></dt>
+          <dd>
+            <span>{{ productRef.code }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.product.quantity">Quantity</span></dt>
+          <dd>
+            <span>{{ productRef.quantity }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.product.unitPrice">Unit Price</span></dt>
+          <dd>
+            <span>{{ productRef.unitPrice }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.product.costPrice">Cost Price</span></dt>
+          <dd>
+            <span>{{ productRef.costPrice }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.product.active">Active</span></dt>
+          <dd>
+            <span>{{ productRef.active }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.product.createdBy">Created By</span></dt>
+          <dd>
+            <span>{{ productRef.createdBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.product.createdDate">Created Date</span></dt>
+          <dd>
+            <span>{{ productRef.createdDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.product.lastModifiedBy">Last Modified By</span></dt>
+          <dd>
+            <span>{{ productRef.lastModifiedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.product.lastModifiedDate">Last Modified Date</span></dt>
+          <dd>
+            <span>{{ productRef.lastModifiedDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.product.brand">Brand</span></dt>
+          <dd>
+            @if (product()!.brand) {
+              <div>
+                <a [routerLink]="['/brand', product()!.brand?.id, 'view']">{{ productRef.brand?.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.product.productCategory">Product Category</span></dt>
+          <dd>
+            @if (product()!.productCategory) {
+              <div>
+                <a [routerLink]="['/product-category', product()!.productCategory?.id, 'view']">{{ productRef.productCategory?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">رجوع</span>
+        </button>
+
+        <button type="button" [routerLink]="['/product', productRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">تعديل</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

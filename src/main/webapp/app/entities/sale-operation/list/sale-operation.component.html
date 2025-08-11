@@ -1,0 +1,218 @@
+<div>
+  <h2 id="page-heading" data-cy="SaleOperationHeading">
+    <span jhiTranslate="inventorySystemApp.saleOperation.home.title">Sale Operations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="inventorySystemApp.saleOperation.home.refreshListLabel">تحديث القائمة</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-sale-operation"
+        [routerLink]="['/sale-operation/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="inventorySystemApp.saleOperation.home.createLabel">إنشاء Sale Operation جديد</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  <jhi-filter [filters]="filters" />
+
+  @if (saleOperations().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="inventorySystemApp.saleOperation.home.notFound">لم يتم العثور على Sale Operations</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="date">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.saleOperation.date">Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalQuantity">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.saleOperation.totalQuantity">Total Quantity</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalAmount">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.saleOperation.totalAmount">Total Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalDiscount">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.saleOperation.totalDiscount">Total Discount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="grandTotal">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.saleOperation.grandTotal">Grand Total</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="active">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.saleOperation.active">Active</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="createdBy">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.saleOperation.createdBy">Created By</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="createdDate">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.saleOperation.createdDate">Created Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastModifiedBy">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.saleOperation.lastModifiedBy">Last Modified By</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastModifiedDate">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.saleOperation.lastModifiedDate">Last Modified Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="bill.id">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.saleOperation.bill">Bill</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="customer.id">
+              <div class="d-flex">
+                <span jhiTranslate="inventorySystemApp.saleOperation.customer">Customer</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (saleOperation of saleOperations(); track trackId(saleOperation)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/sale-operation', saleOperation.id, 'view']">{{ saleOperation.id }}</a>
+              </td>
+              <td>{{ saleOperation.date | formatMediumDatetime }}</td>
+              <td>{{ saleOperation.totalQuantity }}</td>
+              <td>{{ saleOperation.totalAmount }}</td>
+              <td>{{ saleOperation.totalDiscount }}</td>
+              <td>{{ saleOperation.grandTotal }}</td>
+              <td>{{ saleOperation.active }}</td>
+              <td>{{ saleOperation.createdBy }}</td>
+              <td>{{ saleOperation.createdDate | formatMediumDatetime }}</td>
+              <td>{{ saleOperation.lastModifiedBy }}</td>
+              <td>{{ saleOperation.lastModifiedDate | formatMediumDatetime }}</td>
+              <td>
+                @if (saleOperation.bill) {
+                  <div>
+                    <a [routerLink]="['/bill', saleOperation.bill.id, 'view']">{{ saleOperation.bill.id }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (saleOperation.customer) {
+                  <div>
+                    <a [routerLink]="['/customer', saleOperation.customer.id, 'view']">{{ saleOperation.customer.id }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <button
+                    type="submit"
+                    [routerLink]="['/sale']"
+                    [queryParams]="{ 'filter[saleOperationId.in]': saleOperation.id }"
+                    class="btn btn-info btn-sm"
+                    data-cy="filterOtherEntityButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span
+                      class="d-none d-md-inline"
+                      jhiTranslate="entity.action.show"
+                      [translateValues]="{ otherEntity: ('inventorySystemApp.saleOperation.sale' | translate) }"
+                      >Show Sale</span
+                    >
+                  </button>
+                  <a [routerLink]="['/sale-operation', saleOperation.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">عرض</span>
+                  </a>
+
+                  <a [routerLink]="['/sale-operation', saleOperation.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">تعديل</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(saleOperation)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">حذف</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (saleOperations().length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page, totalItems, itemsPerPage }" />
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,38 @@
+{
+  "inventorySystemApp": {
+    "bill": {
+      "home": {
+        "title": "الفواتير",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء فاتورة جديدة",
+        "createOrEditLabel": "إنشاء أو تعديل فاتورة",
+        "notFound": "لم يتم العثور على فواتير"
+      },
+      "created": "تم إنشاء فاتورة جديدة بالمعرف {{ param }}",
+      "updated": "تم تحديث الفاتورة بالمعرف {{ param }}",
+      "deleted": "تم حذف الفاتورة بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف الفاتورة {{ id }}؟"
+      },
+      "detail": {
+        "title": "الفاتورة"
+      },
+      "id": "المعرف",
+      "billNumber": "رقم الفاتورة",
+      "date": "التاريخ",
+      "totalAmount": "المبلغ الإجمالي",
+      "taxAmount": "قيمة الضريبة",
+      "discountAmount": "قيمة الخصم",
+      "paidAmount": "المبلغ المدفوع",
+      "dueAmount": "المبلغ المستحق",
+      "notes": "ملاحظات",
+      "active": "نشط",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل",
+      "saleOperation": "عمليات البيع",
+      "purchaseOperation": "عمليات الشراء"
+    }
+  }
+}

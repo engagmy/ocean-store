@@ -1,0 +1,35 @@
+{
+  "inventorySystemApp": {
+    "purchaseOperation": {
+      "home": {
+        "title": "Purchase Operations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Purchase Operation",
+        "createOrEditLabel": "Create or edit a Purchase Operation",
+        "notFound": "No Purchase Operations found"
+      },
+      "created": "A new Purchase Operation is created with identifier {{ param }}",
+      "updated": "A Purchase Operation is updated with identifier {{ param }}",
+      "deleted": "A Purchase Operation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Purchase Operation {{ id }}?"
+      },
+      "detail": {
+        "title": "Purchase Operation"
+      },
+      "id": "ID",
+      "date": "Date",
+      "supplierInvoiceNo": "Supplier Invoice No",
+      "totalQuantity": "Total Quantity",
+      "totalAmount": "Total Amount",
+      "grandTotal": "Grand Total",
+      "active": "Active",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "bill": "Bill",
+      "purchase": "Purchase"
+    }
+  }
+}

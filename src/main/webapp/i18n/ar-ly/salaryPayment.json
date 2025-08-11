@@ -1,0 +1,31 @@
+{
+  "inventorySystemApp": {
+    "salaryPayment": {
+      "home": {
+        "title": "مدفوعات الرواتب",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء دفعة راتب جديدة",
+        "createOrEditLabel": "إنشاء أو تعديل دفعة راتب",
+        "notFound": "لم يتم العثور على مدفوعات رواتب"
+      },
+      "created": "تم إنشاء دفعة راتب جديدة بالمعرف {{ param }}",
+      "updated": "تم تحديث دفعة الراتب بالمعرف {{ param }}",
+      "deleted": "تم حذف دفعة الراتب بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف دفعة الراتب {{ id }}؟"
+      },
+      "detail": {
+        "title": "دفعة الراتب"
+      },
+      "id": "المعرف",
+      "date": "التاريخ",
+      "amount": "المبلغ",
+      "active": "نشط",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل",
+      "employee": "الموظف"
+    }
+  }
+}

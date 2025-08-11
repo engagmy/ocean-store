@@ -1,0 +1,30 @@
+{
+  "inventorySystemApp": {
+    "brand": {
+      "home": {
+        "title": "العلامات التجارية",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء علامة تجارية جديدة",
+        "createOrEditLabel": "إنشاء أو تعديل علامة تجارية",
+        "notFound": "لم يتم العثور على علامات تجارية"
+      },
+      "created": "تم إنشاء علامة تجارية جديدة بالمعرف {{ param }}",
+      "updated": "تم تحديث العلامة التجارية بالمعرف {{ param }}",
+      "deleted": "تم حذف العلامة التجارية بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف العلامة التجارية {{ id }}؟"
+      },
+      "detail": {
+        "title": "العلامة التجارية"
+      },
+      "id": "المعرف",
+      "name": "الاسم",
+      "active": "نشط",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل",
+      "product": "المنتج"
+    }
+  }
+}

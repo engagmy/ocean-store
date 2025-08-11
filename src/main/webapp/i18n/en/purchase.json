@@ -1,0 +1,36 @@
+{
+  "inventorySystemApp": {
+    "purchase": {
+      "home": {
+        "title": "Purchases",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Purchase",
+        "createOrEditLabel": "Create or edit a Purchase",
+        "notFound": "No Purchases found"
+      },
+      "created": "A new Purchase is created with identifier {{ param }}",
+      "updated": "A Purchase is updated with identifier {{ param }}",
+      "deleted": "A Purchase is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Purchase {{ id }}?"
+      },
+      "detail": {
+        "title": "Purchase"
+      },
+      "id": "ID",
+      "productName": "Product Name",
+      "quantity": "Quantity",
+      "unitPrice": "Unit Price",
+      "lineTotal": "Line Total",
+      "active": "Active",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "purchaseOperation": "Purchase Operation",
+      "product": "Product",
+      "supplier": "Supplier",
+      "purchasePayment": "Purchase Payment"
+    }
+  }
+}

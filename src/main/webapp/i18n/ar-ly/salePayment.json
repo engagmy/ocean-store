@@ -1,0 +1,31 @@
+{
+  "inventorySystemApp": {
+    "salePayment": {
+      "home": {
+        "title": "مدفوعات المبيعات",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء دفعة بيع جديدة",
+        "createOrEditLabel": "إنشاء أو تعديل دفعة بيع",
+        "notFound": "لم يتم العثور على مدفوعات مبيعات"
+      },
+      "created": "تم إنشاء دفعة بيع جديدة بالمعرف {{ param }}",
+      "updated": "تم تحديث دفعة البيع بالمعرف {{ param }}",
+      "deleted": "تم حذف دفعة البيع بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف دفعة البيع {{ id }}؟"
+      },
+      "detail": {
+        "title": "دفعة البيع"
+      },
+      "id": "المعرف",
+      "date": "التاريخ",
+      "amount": "المبلغ",
+      "active": "نشط",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل",
+      "sale": "البيع"
+    }
+  }
+}

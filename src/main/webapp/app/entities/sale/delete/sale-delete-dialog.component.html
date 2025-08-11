@@ -1,0 +1,24 @@
+@if (sale) {
+  <form name="deleteForm" (ngSubmit)="confirmDelete(sale.id!)">
+    <div class="modal-header">
+      <h4 class="modal-title" data-cy="saleDeleteDialogHeading" jhiTranslate="entity.delete.title">تأكيد عملية الحذف</h4>
+    </div>
+
+    <div class="modal-body">
+      <jhi-alert-error />
+      <p id="jhi-delete-sale-heading" jhiTranslate="inventorySystemApp.sale.delete.question" [translateValues]="{ id: sale.id }">
+        هل أنت متأكد أنك تريد حذف Sale {{ sale.id }}؟
+      </p>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+        <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">الغاء</span>
+      </button>
+
+      <button id="jhi-confirm-delete-sale" data-cy="entityConfirmDeleteButton" type="submit" class="btn btn-danger">
+        <fa-icon icon="times"></fa-icon>&nbsp;<span jhiTranslate="entity.action.delete">حذف</span>
+      </button>
+    </div>
+  </form>
+}

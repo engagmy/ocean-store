@@ -1,0 +1,78 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (cashTransaction(); as cashTransactionRef) {
+      <div>
+        <h2 data-cy="cashTransactionDetailsHeading">
+          <span jhiTranslate="inventorySystemApp.cashTransaction.detail.title">Cash Transaction</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ cashTransactionRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.cashTransaction.date">Date</span></dt>
+          <dd>
+            <span>{{ cashTransactionRef.date | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.cashTransaction.amount">Amount</span></dt>
+          <dd>
+            <span>{{ cashTransactionRef.amount }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.cashTransaction.type">Type</span></dt>
+          <dd>
+            <span [jhiTranslate]="'inventorySystemApp.CashTransactionType.' + (cashTransactionRef.type ?? 'null')">{{
+              {
+                null: '',
+                OWNER_DEPOSIT: 'OWNER_DEPOSIT',
+                OWNER_WITHDRAWAL: 'OWNER_WITHDRAWAL',
+                PRODUCT_SALE: 'PRODUCT_SALE',
+                PRODUCT_PURCHASE: 'PRODUCT_PURCHASE',
+                SALARY_PAYMENT: 'SALARY_PAYMENT',
+                OTHER: 'OTHER',
+              }[cashTransactionRef.type ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.cashTransaction.reason">Reason</span></dt>
+          <dd>
+            <span>{{ cashTransactionRef.reason }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.cashTransaction.active">Active</span></dt>
+          <dd>
+            <span>{{ cashTransactionRef.active }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.cashTransaction.createdBy">Created By</span></dt>
+          <dd>
+            <span>{{ cashTransactionRef.createdBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.cashTransaction.createdDate">Created Date</span></dt>
+          <dd>
+            <span>{{ cashTransactionRef.createdDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.cashTransaction.lastModifiedBy">Last Modified By</span></dt>
+          <dd>
+            <span>{{ cashTransactionRef.lastModifiedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.cashTransaction.lastModifiedDate">Last Modified Date</span></dt>
+          <dd>
+            <span>{{ cashTransactionRef.lastModifiedDate | formatMediumDatetime }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">رجوع</span>
+        </button>
+
+        <button type="button" [routerLink]="['/cash-transaction', cashTransactionRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">تعديل</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

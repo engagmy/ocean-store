@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (bill(); as billRef) {
+      <div>
+        <h2 data-cy="billDetailsHeading"><span jhiTranslate="inventorySystemApp.bill.detail.title">Bill</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ billRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.bill.billNumber">Bill Number</span></dt>
+          <dd>
+            <span>{{ billRef.billNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.bill.date">Date</span></dt>
+          <dd>
+            <span>{{ billRef.date | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.bill.totalAmount">Total Amount</span></dt>
+          <dd>
+            <span>{{ billRef.totalAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.bill.taxAmount">Tax Amount</span></dt>
+          <dd>
+            <span>{{ billRef.taxAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.bill.discountAmount">Discount Amount</span></dt>
+          <dd>
+            <span>{{ billRef.discountAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.bill.paidAmount">Paid Amount</span></dt>
+          <dd>
+            <span>{{ billRef.paidAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.bill.dueAmount">Due Amount</span></dt>
+          <dd>
+            <span>{{ billRef.dueAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.bill.notes">Notes</span></dt>
+          <dd>
+            <span>{{ billRef.notes }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.bill.active">Active</span></dt>
+          <dd>
+            <span>{{ billRef.active }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.bill.createdBy">Created By</span></dt>
+          <dd>
+            <span>{{ billRef.createdBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.bill.createdDate">Created Date</span></dt>
+          <dd>
+            <span>{{ billRef.createdDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.bill.lastModifiedBy">Last Modified By</span></dt>
+          <dd>
+            <span>{{ billRef.lastModifiedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.bill.lastModifiedDate">Last Modified Date</span></dt>
+          <dd>
+            <span>{{ billRef.lastModifiedDate | formatMediumDatetime }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">رجوع</span>
+        </button>
+
+        <button type="button" [routerLink]="['/bill', billRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">تعديل</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

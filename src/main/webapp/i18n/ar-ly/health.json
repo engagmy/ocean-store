@@ -1,21 +1,21 @@
 {
   "health": {
-    "title": "تدقيقات الصحة",
+    "title": "فحوصات الحالة",
     "refresh.button": "تحديث",
-    "stacktrace": "تتبع المكدس",
+    "stacktrace": "تتبع الأخطاء",
     "details": {
       "details": "تفاصيل",
       "properties": "الخصائص",
-      "name": "اسم",
+      "name": "الاسم",
       "value": "القيمة",
       "error": "خطأ"
     },
     "indicator": {
       "diskSpace": "مساحة القرص",
       "mail": "البريد الإلكتروني",
-      "livenessState": "Liveness state",
-      "readinessState": "Readiness state",
-      "ping": "Application",
+      "livenessState": "حالة النشاط",
+      "readinessState": "حالة الجاهزية",
+      "ping": "التطبيق",
       "db": "قاعدة البيانات"
     },
     "table": {
@@ -23,10 +23,10 @@
       "status": "الحالة"
     },
     "status": {
-      "UNKNOWN": "UNKNOWN",
-      "UP": "تشتغل",
-      "OUT_OF_SERVICE": "OUT_OF_SERVICE",
-      "DOWN": "عاطلة"
+      "UNKNOWN": "غير معروف",
+      "UP": "تعمل",
+      "OUT_OF_SERVICE": "خارج الخدمة",
+      "DOWN": "لا تعمل"
     }
   }
 }

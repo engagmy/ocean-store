@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ocean-store": {
+    "inventory-system": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -82,15 +82,15 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "buildTarget": "ocean-store:build:development",
+            "buildTarget": "inventory-system:build:development",
             "port": 4200
           },
           "configurations": {
             "production": {
-              "buildTarget": "ocean-store:build:production"
+              "buildTarget": "inventory-system:build:production"
             },
             "development": {
-              "buildTarget": "ocean-store:build:development"
+              "buildTarget": "inventory-system:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -111,6 +111,7 @@
       "path": "./target/angular/",
       "environment": "all"
     },
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": false
   }
 }

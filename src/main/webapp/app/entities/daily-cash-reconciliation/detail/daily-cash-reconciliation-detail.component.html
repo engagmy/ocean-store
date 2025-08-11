@@ -1,0 +1,88 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (dailyCashReconciliation(); as dailyCashReconciliationRef) {
+      <div>
+        <h2 data-cy="dailyCashReconciliationDetailsHeading">
+          <span jhiTranslate="inventorySystemApp.dailyCashReconciliation.detail.title">Daily Cash Reconciliation</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ dailyCashReconciliationRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashReconciliation.date">Date</span></dt>
+          <dd>
+            <span>{{ dailyCashReconciliationRef.date | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashReconciliation.openingBalance">Opening Balance</span></dt>
+          <dd>
+            <span>{{ dailyCashReconciliationRef.openingBalance }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashReconciliation.totalSales">Total Sales</span></dt>
+          <dd>
+            <span>{{ dailyCashReconciliationRef.totalSales }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashReconciliation.totalPurchases">Total Purchases</span></dt>
+          <dd>
+            <span>{{ dailyCashReconciliationRef.totalPurchases }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashReconciliation.totalSalaryPaid">Total Salary Paid</span></dt>
+          <dd>
+            <span>{{ dailyCashReconciliationRef.totalSalaryPaid }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashReconciliation.ownerDeposits">Owner Deposits</span></dt>
+          <dd>
+            <span>{{ dailyCashReconciliationRef.ownerDeposits }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashReconciliation.withdrawals">Withdrawals</span></dt>
+          <dd>
+            <span>{{ dailyCashReconciliationRef.withdrawals }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashReconciliation.closingBalance">Closing Balance</span></dt>
+          <dd>
+            <span>{{ dailyCashReconciliationRef.closingBalance }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashReconciliation.notes">Notes</span></dt>
+          <dd>
+            <span>{{ dailyCashReconciliationRef.notes }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashReconciliation.active">Active</span></dt>
+          <dd>
+            <span>{{ dailyCashReconciliationRef.active }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashReconciliation.createdBy">Created By</span></dt>
+          <dd>
+            <span>{{ dailyCashReconciliationRef.createdBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashReconciliation.createdDate">Created Date</span></dt>
+          <dd>
+            <span>{{ dailyCashReconciliationRef.createdDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashReconciliation.lastModifiedBy">Last Modified By</span></dt>
+          <dd>
+            <span>{{ dailyCashReconciliationRef.lastModifiedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.dailyCashReconciliation.lastModifiedDate">Last Modified Date</span></dt>
+          <dd>
+            <span>{{ dailyCashReconciliationRef.lastModifiedDate | formatMediumDatetime }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">رجوع</span>
+        </button>
+
+        <button type="button" [routerLink]="['/daily-cash-reconciliation', dailyCashReconciliationRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">تعديل</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

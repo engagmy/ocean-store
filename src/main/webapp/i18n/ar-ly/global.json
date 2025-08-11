@@ -1,147 +1,167 @@
 {
   "global": {
-    "title": "OceanStore",
-    "browsehappy": "أنت تستخدم متصفح <strong>قديم</strong> . من فضلك <a href=\"http://browsehappy.com/?locale=en\">قم بتحديث متصفحك</a> لتحسين تجربتك.",
+    "title": "أوشن ستور",
+    "browsehappy": "أنت تستخدم <strong>متصفحًا قديمًا</strong>. من فضلك <a href=\"http://browsehappy.com/?locale=ar\">قم بتحديث متصفحك</a> لتحسين تجربتك.",
     "menu": {
       "home": "الصفحة الرئيسية",
-      "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+      "jhipster-needle-menu-add-element": "سيقوم JHipster بإضافة عناصر قائمة إضافية هنا (لا تترجم!)",
       "entities": {
-        "main": "الكيانات",
-        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
-        "adminAuthority": "Authority"
+        "main": "الصفحات",
+        "jhipster-needle-menu-add-entry": "سيقوم JHipster بإضافة كيانات إضافية هنا (لا تترجم!)",
+        "adminAuthority": "الصلاحيات",
+        "brand": "العلامات التجارية",
+        "productCategory": "فئات المنتجات",
+        "product": "المنتجات",
+        "inventoryTransaction": "حركات المخزون",
+        "customer": "العملاء",
+        "saleOperation": "عمليات البيع",
+        "sale": "المبيعات",
+        "salePayment": "مدفوعات المبيعات",
+        "purchaseOperation": "عمليات الشراء",
+        "purchase": "المشتريات",
+        "purchasePayment": "مدفوعات الشراء",
+        "bill": "الفواتير",
+        "supplier": "الموردون",
+        "employee": "الموظفون",
+        "salaryPayment": "مدفوعات الرواتب",
+        "cashTransaction": "المعاملات النقدية",
+        "outgoingPayment": "المدفوعات الصادرة",
+        "cashBalance": "الأرصدة النقدية",
+        "dailyCashReconciliation": "تسويات النقد اليومية",
+        "dailyCashDetail": "تفاصيل النقد اليومية"
       },
       "account": {
         "main": "الحساب",
         "settings": "الإعدادات",
-        "password": "كلمه السر",
-        "sessions": "جلسات",
+        "password": "كلمة المرور",
+        "sessions": "الجلسات",
         "login": "تسجيل الدخول",
         "logout": "تسجيل الخروج",
         "register": "التسجيل"
       },
       "admin": {
-        "main": "الادارة",
-        "userManagement": "إدارة المستخدم",
+        "main": "الإدارة",
+        "userManagement": "إدارة المستخدمين",
         "tracker": "تعقب المستخدمين",
-        "metrics": "مقاييس",
+        "metrics": "المقاييس",
         "health": "الصحة",
         "configuration": "الإعدادات",
         "logs": "السجلات",
-        "apidocs": "API",
+        "apidocs": "وثائق API",
         "database": "قاعدة البيانات",
-        "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
+        "jhipster-needle-menu-add-admin-element": "سيقوم JHipster بإضافة عناصر إدارية إضافية هنا (لا تترجم!)"
       },
       "language": "اللغة"
     },
     "form": {
       "username.label": "اسم المستخدم",
-      "username.placeholder": "إسم المستخدم الخاص بك",
-      "currentpassword.label": "Current password",
-      "currentpassword.placeholder": "Current password",
-      "newpassword.label": "كلمة السر الجديدة",
-      "newpassword.placeholder": "كلمة السر الجديدة",
-      "confirmpassword.label": "تأكيد كلمة السر الجديدة",
-      "confirmpassword.placeholder": "تأكيد كلمة السر الجديدة",
+      "username.placeholder": "ادخل اسم المستخدم الخاص بك",
+      "currentpassword.label": "كلمة المرور الحالية",
+      "currentpassword.placeholder": "كلمة المرور الحالية",
+      "newpassword.label": "كلمة المرور الجديدة",
+      "newpassword.placeholder": "كلمة المرور الجديدة",
+      "confirmpassword.label": "تأكيد كلمة المرور الجديدة",
+      "confirmpassword.placeholder": "تأكيد كلمة المرور الجديدة",
       "email.label": "البريد الإلكتروني",
-      "email.placeholder": "بريدك الالكتروني"
+      "email.placeholder": "ادخل بريدك الإلكتروني"
     },
     "messages": {
       "info": {
         "authenticated": {
-          "prefix": "إذا اردت أن ",
-          "link": "تسجل دخولك",
-          "suffix": ", يمكنك تجربة الحسابات التجريبية:<br/>- المدير (login=\"admin\" و كلمة المرور=\"admin\") <br/>- المستخدم (login=\"user\" و كلمة المرور=\"user\")."
+          "prefix": "إذا أردت ",
+          "link": "تسجيل الدخول",
+          "suffix": "، يمكنك تجربة الحسابات التجريبية:<br/>- المدير (اسم المستخدم = \"admin\" وكلمة المرور = \"admin\")<br/>- المستخدم (اسم المستخدم = \"user\" وكلمة المرور = \"user\")."
         },
         "register": {
-          "noaccount": "لا تملك حسابا حتى الآن؟",
-          "link": "تسجيل حساب جديد"
+          "noaccount": "لا تملك حسابًا حتى الآن؟",
+          "link": "سجل حسابًا جديدًا"
         }
       },
       "error": {
-        "dontmatch": "كلمة السر وتأكيدها لا تتطابق!"
+        "dontmatch": "كلمتا المرور غير متطابقتين!"
       },
       "validate": {
         "newpassword": {
-          "required": "كلمة المرور الخاصة بك مطلوبة.",
-          "minlength": "كلمة السر لا يمكن أن تكون اقل 4 احرف.",
-          "maxlength": "كلمة السر لا يمكن أن تكون اكثر من 50 حرفا.",
+          "required": "كلمة المرور مطلوبة.",
+          "minlength": "يجب ألا تقل كلمة المرور عن 4 أحرف.",
+          "maxlength": "لا يجب أن تتجاوز كلمة المرور 50 حرفًا.",
           "strength": "قوة كلمة المرور:"
         },
         "confirmpassword": {
-          "required": "تأكيد كلمة المرور الخاصة بك مطلوب.",
-          "minlength": "تأكيد كلمة السر لا يمكن أن يكون اقل 4 احرف.",
-          "maxlength": "تأكيد كلمة السر لا يمكن أن يكون اكثر من 50 حرفا."
+          "required": "تأكيد كلمة المرور مطلوب.",
+          "minlength": "يجب ألا يقل تأكيد كلمة المرور عن 4 أحرف.",
+          "maxlength": "لا يجب أن يتجاوز تأكيد كلمة المرور 50 حرفًا."
         },
         "email": {
-          "required": "البريد الإلكتروني الخاصة بك مطلوب.",
-          "invalid": "بريدك الالكتروني خاطئ.",
-          "minlength": "البريد اﻹلكتروني لا يمكن أن يكون اقل 4 احرف.",
-          "maxlength": "البريد اﻹلكتروني لا يمكن أن يكون اكثر من 50 حرفا."
+          "required": "البريد الإلكتروني مطلوب.",
+          "invalid": "البريد الإلكتروني غير صالح.",
+          "minlength": "يجب ألا يقل البريد الإلكتروني عن 4 أحرف.",
+          "maxlength": "لا يجب أن يتجاوز البريد الإلكتروني 50 حرفًا."
         }
       }
     },
     "field": {
-      "id": "ID"
+      "id": "المعرف"
     },
     "ribbon": {
       "dev": "تطوير"
     },
-    "item-count": "يعرض {{first}} - {{second}} من {{total}} البيانات."
+    "item-count": "عرض {{first}} - {{second}} من أصل {{total}} عنصر."
   },
   "entity": {
     "action": {
-      "addblob": "اضف ملف",
-      "addimage": "اضف صورة",
+      "addblob": "إضافة ملف",
+      "addimage": "إضافة صورة",
       "back": "رجوع",
-      "cancel": "الغاء",
+      "cancel": "إلغاء",
       "delete": "حذف",
       "edit": "تعديل",
       "open": "فتح",
       "save": "حفظ",
       "view": "عرض",
-      "show": "Show {{otherEntity}}"
+      "show": "عرض {{otherEntity}}"
     },
     "detail": {
-      "field": "حقل",
-      "value": "قيمة"
+      "field": "الحقل",
+      "value": "القيمة"
     },
     "delete": {
       "title": "تأكيد عملية الحذف"
     },
     "validation": {
       "required": "هذا الحقل مطلوب.",
-      "minlength": "هذا الحقل مطلوب أن يكون على الأقل {{ min }} احرف.",
-      "maxlength": "هذا الحقل لا يمكن أن يكون أطول من {{ max }} احرف.",
-      "min": "هذا الحقل ينبغي أن يكون اقل من {{ min }}.",
-      "max": "هذا الحقل لا يمكن أن يكون أكثر من {{ max }}.",
-      "minbytes": "هذا الحقل ينبغي أن يكون اقل من {{ min }} بايت.",
-      "maxbytes": "هذا الحقل لا يمكن أن يكون أكثر من {{ max }} بايت.",
-      "pattern": "هذا الحقل يجب أن يتبع نمط {{ pattern }}.",
-      "number": "هذا الحقل يجب أن يكون رقم.",
-      "datetimelocal": "هذا الحقل يجب أن يكون تاريخ ووقت."
+      "minlength": "يجب ألا يقل هذا الحقل عن {{ min }} حرف.",
+      "maxlength": "لا يجب أن يتجاوز هذا الحقل {{ max }} حرف.",
+      "min": "يجب أن تكون القيمة أكبر من أو تساوي {{ min }}.",
+      "max": "يجب ألا تتجاوز القيمة {{ max }}.",
+      "minbytes": "يجب ألا يقل حجم البيانات عن {{ min }} بايت.",
+      "maxbytes": "يجب ألا يتجاوز حجم البيانات {{ max }} بايت.",
+      "pattern": "يجب أن يتبع هذا الحقل النمط {{ pattern }}.",
+      "number": "يجب أن تكون القيمة رقمًا.",
+      "datetimelocal": "يجب أن تكون القيمة تاريخًا ووقتًا."
     },
     "filters": {
-      "set": "Following filters are set",
-      "clear": "Clear filter",
-      "clearAll": "Clear all filters"
+      "set": "تم تطبيق الفلاتر التالية",
+      "clear": "إزالة الفلتر",
+      "clearAll": "إزالة جميع الفلاتر"
     }
   },
   "error": {
-    "internalServerError": "حدث خطأ في الخادم",
-    "server.not.reachable": "الخادم لا يمكن الوصول إليه",
-    "url.not.found": "غير موجود",
-    "NotNull": "الحقل {{ fieldName }} لا يمكن ان يكون فارغ",
-    "Size": "الحقل {{ fieldName }} لا يلبي  متطلبات الحد الأدنى / الحد الأقصى!",
-    "userexists": "اسم الدخول سبق استخدامه!",
-    "emailexists": "البريد الالكتروني قيد الاستخدام بالفعل!",
-    "idexists": "{{ entityName }} جديد لا يمكن أن يكون له معرف بالفعل",
-    "idnull": "Invalid ID",
-    "idinvalid": "Invalid Id",
-    "idnotfound": "ID cannot be found",
+    "internalServerError": "حدث خطأ داخلي في الخادم",
+    "server.not.reachable": "تعذر الوصول إلى الخادم",
+    "url.not.found": "الرابط غير موجود",
+    "NotNull": "الحقل {{ fieldName }} لا يمكن أن يكون فارغًا",
+    "Size": "الحقل {{ fieldName }} لا يحقق متطلبات الحد الأدنى أو الأقصى!",
+    "userexists": "اسم المستخدم مستخدم بالفعل!",
+    "emailexists": "البريد الإلكتروني مستخدم بالفعل!",
+    "idexists": "لا يمكن أن يكون للكيان الجديد {{ entityName }} معرف موجود مسبقًا",
+    "idnull": "معرف غير صالح",
+    "idinvalid": "المعرف غير صالح",
+    "idnotfound": "لم يتم العثور على المعرف",
     "file": {
-      "could.not.extract": "Could not extract file",
-      "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
+      "could.not.extract": "تعذر استخراج الملف",
+      "not.image": "كان من المتوقع أن يكون الملف صورة لكن نوعه هو \"{{ fileType }}\""
     }
   },
-  "footer": "هنا يضع الفووتر"
+  "footer": "هنا يتم وضع التذييل"
 }

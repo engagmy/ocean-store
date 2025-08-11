@@ -1,6 +1,6 @@
 {
-  "name": "OceanStore",
-  "short_name": "OceanStore",
+  "name": "InventorySystem",
+  "short_name": "InventorySystem",
   "icons": [
     {
       "src": "./content/images/jhipster_family_member_3_head-192.png",

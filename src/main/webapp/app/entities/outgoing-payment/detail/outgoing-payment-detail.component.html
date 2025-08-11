@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (outgoingPayment(); as outgoingPaymentRef) {
+      <div>
+        <h2 data-cy="outgoingPaymentDetailsHeading">
+          <span jhiTranslate="inventorySystemApp.outgoingPayment.detail.title">Outgoing Payment</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ outgoingPaymentRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.outgoingPayment.date">Date</span></dt>
+          <dd>
+            <span>{{ outgoingPaymentRef.date | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.outgoingPayment.amount">Amount</span></dt>
+          <dd>
+            <span>{{ outgoingPaymentRef.amount }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.outgoingPayment.reason">Reason</span></dt>
+          <dd>
+            <span>{{ outgoingPaymentRef.reason }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.outgoingPayment.notes">Notes</span></dt>
+          <dd>
+            <span>{{ outgoingPaymentRef.notes }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.outgoingPayment.active">Active</span></dt>
+          <dd>
+            <span>{{ outgoingPaymentRef.active }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.outgoingPayment.createdBy">Created By</span></dt>
+          <dd>
+            <span>{{ outgoingPaymentRef.createdBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.outgoingPayment.createdDate">Created Date</span></dt>
+          <dd>
+            <span>{{ outgoingPaymentRef.createdDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.outgoingPayment.lastModifiedBy">Last Modified By</span></dt>
+          <dd>
+            <span>{{ outgoingPaymentRef.lastModifiedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.outgoingPayment.lastModifiedDate">Last Modified Date</span></dt>
+          <dd>
+            <span>{{ outgoingPaymentRef.lastModifiedDate | formatMediumDatetime }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">رجوع</span>
+        </button>
+
+        <button type="button" [routerLink]="['/outgoing-payment', outgoingPaymentRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">تعديل</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

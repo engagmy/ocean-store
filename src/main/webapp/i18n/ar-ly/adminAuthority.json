@@ -1,23 +1,23 @@
 {
-  "oceanStoreApp": {
+  "inventorySystemApp": {
     "adminAuthority": {
       "home": {
-        "title": "Authorities",
+        "title": "الصلاحيات",
         "refreshListLabel": "تحديث القائمة",
-        "createLabel": "إنشاء Authority جديد",
-        "createOrEditLabel": "إنشاء أو تعديل Authority",
-        "notFound": "لم يتم العثور على Authorities"
+        "createLabel": "إنشاء صلاحية جديدة",
+        "createOrEditLabel": "إنشاء أو تعديل صلاحية",
+        "notFound": "لم يتم العثور على صلاحيات"
       },
-      "created": "Authority جديد تم إنشاؤه بالمعرف {{ param }}",
-      "updated": "Authority تم تحديثه بالمعرف {{ param }}",
-      "deleted": "Authority تم حذفه بالمعرف {{ param }}",
+      "created": "تم إنشاء صلاحية جديدة بالمعرف {{ param }}",
+      "updated": "تم تحديث الصلاحية بالمعرف {{ param }}",
+      "deleted": "تم حذف الصلاحية بالمعرف {{ param }}",
       "delete": {
-        "question": "هل أنت متأكد أنك تريد حذف Authority {{ id }}؟"
+        "question": "هل أنت متأكد أنك تريد حذف الصلاحية {{ id }}؟"
       },
       "detail": {
-        "title": "Authority"
+        "title": "الصلاحية"
       },
-      "name": "Name"
+      "name": "الاسم"
     }
   }
 }

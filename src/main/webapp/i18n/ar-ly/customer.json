@@ -1,0 +1,32 @@
+{
+  "inventorySystemApp": {
+    "customer": {
+      "home": {
+        "title": "العملاء",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء عميل جديد",
+        "createOrEditLabel": "إنشاء أو تعديل عميل",
+        "notFound": "لم يتم العثور على عملاء"
+      },
+      "created": "تم إنشاء عميل جديد بالمعرف {{ param }}",
+      "updated": "تم تحديث العميل بالمعرف {{ param }}",
+      "deleted": "تم حذف العميل بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف العميل {{ id }}؟"
+      },
+      "detail": {
+        "title": "العميل"
+      },
+      "id": "المعرف",
+      "name": "الاسم",
+      "phone": "رقم الهاتف",
+      "address": "العنوان",
+      "active": "نشط",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل",
+      "saleOperation": "عمليات البيع"
+    }
+  }
+}

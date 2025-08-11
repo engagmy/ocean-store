@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (purchasePayment(); as purchasePaymentRef) {
+      <div>
+        <h2 data-cy="purchasePaymentDetailsHeading">
+          <span jhiTranslate="inventorySystemApp.purchasePayment.detail.title">Purchase Payment</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ purchasePaymentRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.purchasePayment.date">Date</span></dt>
+          <dd>
+            <span>{{ purchasePaymentRef.date | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.purchasePayment.amount">Amount</span></dt>
+          <dd>
+            <span>{{ purchasePaymentRef.amount }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.purchasePayment.active">Active</span></dt>
+          <dd>
+            <span>{{ purchasePaymentRef.active }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.purchasePayment.createdBy">Created By</span></dt>
+          <dd>
+            <span>{{ purchasePaymentRef.createdBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.purchasePayment.createdDate">Created Date</span></dt>
+          <dd>
+            <span>{{ purchasePaymentRef.createdDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.purchasePayment.lastModifiedBy">Last Modified By</span></dt>
+          <dd>
+            <span>{{ purchasePaymentRef.lastModifiedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.purchasePayment.lastModifiedDate">Last Modified Date</span></dt>
+          <dd>
+            <span>{{ purchasePaymentRef.lastModifiedDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.purchasePayment.purchase">Purchase</span></dt>
+          <dd>
+            @if (purchasePayment()!.purchase) {
+              <div>
+                <a [routerLink]="['/purchase', purchasePayment()!.purchase?.id, 'view']">{{ purchasePaymentRef.purchase?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">رجوع</span>
+        </button>
+
+        <button type="button" [routerLink]="['/purchase-payment', purchasePaymentRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">تعديل</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

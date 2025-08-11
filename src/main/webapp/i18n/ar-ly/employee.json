@@ -1,0 +1,33 @@
+{
+  "inventorySystemApp": {
+    "employee": {
+      "home": {
+        "title": "الموظفون",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء موظف جديد",
+        "createOrEditLabel": "إنشاء أو تعديل موظف",
+        "notFound": "لم يتم العثور على موظفين"
+      },
+      "created": "تم إنشاء موظف جديد بالمعرف {{ param }}",
+      "updated": "تم تحديث الموظف بالمعرف {{ param }}",
+      "deleted": "تم حذف الموظف بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف الموظف {{ id }}؟"
+      },
+      "detail": {
+        "title": "الموظف"
+      },
+      "id": "المعرف",
+      "name": "الاسم",
+      "jobTitle": "المسمى الوظيفي",
+      "salary": "الراتب",
+      "joinDate": "تاريخ الانضمام",
+      "active": "نشط",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل",
+      "salaryPayment": "دفع الراتب"
+    }
+  }
+}

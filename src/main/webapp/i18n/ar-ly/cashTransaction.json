@@ -1,0 +1,32 @@
+{
+  "inventorySystemApp": {
+    "cashTransaction": {
+      "home": {
+        "title": "المعاملات النقدية",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء معاملة نقدية جديدة",
+        "createOrEditLabel": "إنشاء أو تعديل معاملة نقدية",
+        "notFound": "لم يتم العثور على معاملات نقدية"
+      },
+      "created": "تم إنشاء معاملة نقدية جديدة بالمعرف {{ param }}",
+      "updated": "تم تحديث المعاملة النقدية بالمعرف {{ param }}",
+      "deleted": "تم حذف المعاملة النقدية بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف المعاملة النقدية {{ id }}؟"
+      },
+      "detail": {
+        "title": "المعاملة النقدية"
+      },
+      "id": "المعرف",
+      "date": "التاريخ",
+      "amount": "المبلغ",
+      "type": "النوع",
+      "reason": "السبب",
+      "active": "نشط",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل"
+    }
+  }
+}

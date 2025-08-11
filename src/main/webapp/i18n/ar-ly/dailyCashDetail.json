@@ -1,0 +1,35 @@
+{
+  "inventorySystemApp": {
+    "dailyCashDetail": {
+      "home": {
+        "title": "تفاصيل النقد اليومية",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء تفاصيل نقدية يومية جديدة",
+        "createOrEditLabel": "إنشاء أو تعديل تفاصيل نقدية يومية",
+        "notFound": "لم يتم العثور على تفاصيل نقدية يومية"
+      },
+      "created": "تم إنشاء تفاصيل نقدية يومية جديدة بالمعرف {{ param }}",
+      "updated": "تم تحديث تفاصيل النقد اليومية بالمعرف {{ param }}",
+      "deleted": "تم حذف تفاصيل النقد اليومية بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف تفاصيل النقد اليومية {{ id }}؟"
+      },
+      "detail": {
+        "title": "تفاصيل النقد اليومية"
+      },
+      "id": "المعرف",
+      "type": "النوع",
+      "referenceId": "معرف المرجع",
+      "referenceType": "نوع المرجع",
+      "amount": "المبلغ",
+      "description": "الوصف",
+      "timestamp": "الوقت والتاريخ",
+      "active": "نشط",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل",
+      "dailyCashReconciliation": "تسوية النقد اليومية"
+    }
+  }
+}

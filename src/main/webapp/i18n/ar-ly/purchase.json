@@ -1,0 +1,35 @@
+{
+  "inventorySystemApp": {
+    "purchase": {
+      "home": {
+        "title": "المشتريات",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء عملية شراء جديدة",
+        "createOrEditLabel": "إنشاء أو تعديل عملية شراء",
+        "notFound": "لم يتم العثور على عمليات شراء"
+      },
+      "created": "تم إنشاء عملية شراء جديدة بالمعرف {{ param }}",
+      "updated": "تم تحديث عملية الشراء بالمعرف {{ param }}",
+      "deleted": "تم حذف عملية الشراء بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف عملية الشراء {{ id }}؟"
+      },
+      "detail": {
+        "title": "عملية الشراء"
+      },
+      "id": "المعرف",
+      "date": "التاريخ",
+      "quantity": "الكمية",
+      "unitPrice": "سعر الوحدة",
+      "total": "الإجمالي",
+      "active": "نشط",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل",
+      "product": "المنتج",
+      "supplier": "المورد",
+      "purchasePayment": "دفع الشراء"
+    }
+  }
+}

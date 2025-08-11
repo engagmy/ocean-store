@@ -15,7 +15,7 @@
 
 spring:
   application:
-    name: oceanStore
+    name: InventorySystem
   # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
   liquibase:
     contexts: test
@@ -36,13 +36,13 @@ spring:
           authorities-claim-name: auth
   task:
     execution:
-      thread-name-prefix: ocean-store-task-
+      thread-name-prefix: inventory-system-task-
       pool:
         core-size: 1
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: ocean-store-scheduling-
+      thread-name-prefix: inventory-system-scheduling-
       pool:
         size: 20
   thymeleaf:
@@ -59,9 +59,9 @@ server:
 # ===================================================================
 jhipster:
   clientApp:
-    name: 'oceanStoreApp'
+    name: 'inventorySystemApp'
   mail:
-    from: oceanStore@localhost.com
+    from: InventorySystem@localhost.com
     base-url: http://127.0.0.1:8080
   logging:
     # To test json console appender
@@ -75,7 +75,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-        base64-secret: MTkwMGM0NDY3ZDE3NDU3MDcwOGM4NzM1ODg4OTQ1ZDVjODZkZWVjODNkZjZhOWE2ZGMyMGFlZmQ5OTY3ZWJkNmQ1Mjk4ZDgzODIzZWE2MjQ2YTQ5N2ZiZTMxMTJmYmM1NDQ0MjgzYmE0ZTM3NDdiOWE4MTEyNmVmZmE3ZjUzM2I=
+        base64-secret: ZGQ3OWYyNGZkNzc2MTJkNjVlNGFjZWUwZGY0NTliZWQyMDZjZmMxMGRhNDY3OTM2OWEzNTM2Yjg2YTUwMzllODRjNmUyNmUzYWQyOTM5OGViZWMxYjVmMzZlOTIxMGY5MGY1YzczZDYwOWM5ZGE4ZTQ3NzU5ZDY0MTJlZDI5NjY=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 86400

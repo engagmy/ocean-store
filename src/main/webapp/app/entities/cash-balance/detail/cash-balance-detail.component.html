@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (cashBalance(); as cashBalanceRef) {
+      <div>
+        <h2 data-cy="cashBalanceDetailsHeading"><span jhiTranslate="inventorySystemApp.cashBalance.detail.title">Cash Balance</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ cashBalanceRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.cashBalance.available">Available</span></dt>
+          <dd>
+            <span>{{ cashBalanceRef.available }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.cashBalance.lastUpdated">Last Updated</span></dt>
+          <dd>
+            <span>{{ cashBalanceRef.lastUpdated | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.cashBalance.notes">Notes</span></dt>
+          <dd>
+            <span>{{ cashBalanceRef.notes }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.cashBalance.active">Active</span></dt>
+          <dd>
+            <span>{{ cashBalanceRef.active }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.cashBalance.createdBy">Created By</span></dt>
+          <dd>
+            <span>{{ cashBalanceRef.createdBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.cashBalance.createdDate">Created Date</span></dt>
+          <dd>
+            <span>{{ cashBalanceRef.createdDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.cashBalance.lastModifiedBy">Last Modified By</span></dt>
+          <dd>
+            <span>{{ cashBalanceRef.lastModifiedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="inventorySystemApp.cashBalance.lastModifiedDate">Last Modified Date</span></dt>
+          <dd>
+            <span>{{ cashBalanceRef.lastModifiedDate | formatMediumDatetime }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">رجوع</span>
+        </button>
+
+        <button type="button" [routerLink]="['/cash-balance', cashBalanceRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">تعديل</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

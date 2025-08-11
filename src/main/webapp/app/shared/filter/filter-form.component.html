@@ -1,0 +1,17 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="row g-2 align-items-end mb-3">
+  <ng-container *ngFor="let field of fields">
+    <div class="col-md-4">
+      <label class="form-label" jhiTranslate="inventorySystemApp.{{ field.labelKey }}">Name</label>
+      <input *ngIf="field.type === 'text'" [type]="field.type" class="form-control" [formControlName]="field.key" />
+      <select *ngIf="field.type === 'select'" class="form-select" [id]="field.key" [formControlName]="field.key">
+        <option value="">-- اختر --</option>
+        <option *ngFor="let option of field.options" [value]="option.value">{{ option.label }}</option>
+      </select>
+    </div>
+  </ng-container>
+
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary">بحث</button>
+    <button type="button" class="btn btn-secondary ms-2" (click)="reset()">إعادة تعيين</button>
+  </div>
+</form>

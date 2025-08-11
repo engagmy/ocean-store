@@ -1,6 +1,6 @@
 {
   "global": {
-    "title": "OceanStore",
+    "title": "InventorySystem",
     "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
     "menu": {
       "home": "Home",
@@ -8,7 +8,27 @@
       "entities": {
         "main": "Entities",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
-        "adminAuthority": "Authority"
+        "adminAuthority": "Authority",
+        "brand": "Brand",
+        "productCategory": "Product Category",
+        "product": "Product",
+        "inventoryTransaction": "Inventory Transaction",
+        "customer": "Customer",
+        "saleOperation": "Sale Operation",
+        "sale": "Sale",
+        "salePayment": "Sale Payment",
+        "purchaseOperation": "Purchase Operation",
+        "purchase": "Purchase",
+        "purchasePayment": "Purchase Payment",
+        "bill": "Bill",
+        "supplier": "Supplier",
+        "employee": "Employee",
+        "salaryPayment": "Salary Payment",
+        "cashTransaction": "Cash Transaction",
+        "outgoingPayment": "Outgoing Payment",
+        "cashBalance": "Cash Balance",
+        "dailyCashReconciliation": "Daily Cash Reconciliation",
+        "dailyCashDetail": "Daily Cash Detail"
       },
       "account": {
         "main": "Account",

@@ -1,0 +1,38 @@
+{
+  "inventorySystemApp": {
+    "product": {
+      "home": {
+        "title": "المنتجات",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء منتج جديد",
+        "createOrEditLabel": "إنشاء أو تعديل منتج",
+        "notFound": "لم يتم العثور على منتجات"
+      },
+      "created": "تم إنشاء منتج جديد بالمعرف {{ param }}",
+      "updated": "تم تحديث المنتج بالمعرف {{ param }}",
+      "deleted": "تم حذف المنتج بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف المنتج {{ id }}؟"
+      },
+      "detail": {
+        "title": "المنتج"
+      },
+      "id": "المعرف",
+      "name": "الاسم",
+      "code": "الرمز",
+      "quantity": "الكمية",
+      "unitPrice": "سعر الوحدة",
+      "costPrice": "سعر التكلفة",
+      "createdBy": "أنشئ بواسطة",
+      "createdDate": "تاريخ الإنشاء",
+      "lastModifiedBy": "آخر تعديل بواسطة",
+      "lastModifiedDate": "تاريخ آخر تعديل",
+      "brand": "العلامة التجارية",
+      "productCategory": "فئة المنتج",
+      "inventoryTransaction": "حركة المخزون",
+      "sale": "البيع",
+      "active": "نشط",
+      "purchase": "الشراء"
+    }
+  }
+}

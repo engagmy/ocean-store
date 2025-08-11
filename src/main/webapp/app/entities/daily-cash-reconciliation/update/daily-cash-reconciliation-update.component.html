@@ -1,0 +1,250 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-daily-cash-reconciliation-heading"
+        data-cy="DailyCashReconciliationCreateUpdateHeading"
+        jhiTranslate="inventorySystemApp.dailyCashReconciliation.home.createOrEditLabel"
+      >
+        إنشاء أو تعديل Daily Cash Reconciliation
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="inventorySystemApp.dailyCashReconciliation.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        @let dateRef = editForm.get('date')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_date" jhiTranslate="inventorySystemApp.dailyCashReconciliation.date">Date</label>
+          <div class="input-group">
+            <input
+              id="field_date"
+              data-cy="date"
+              type="text"
+              class="form-control"
+              name="date"
+              ngbDatepicker
+              #dateDp="ngbDatepicker"
+              formControlName="date"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+          @if (dateRef.invalid && (dateRef.dirty || dateRef.touched)) {
+            <div>
+              @if (editForm.get('date')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">هذا الحقل مطلوب.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_openingBalance" jhiTranslate="inventorySystemApp.dailyCashReconciliation.openingBalance"
+            >Opening Balance</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="openingBalance"
+            id="field_openingBalance"
+            data-cy="openingBalance"
+            formControlName="openingBalance"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_totalSales" jhiTranslate="inventorySystemApp.dailyCashReconciliation.totalSales"
+            >Total Sales</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalSales"
+            id="field_totalSales"
+            data-cy="totalSales"
+            formControlName="totalSales"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_totalPurchases" jhiTranslate="inventorySystemApp.dailyCashReconciliation.totalPurchases"
+            >Total Purchases</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalPurchases"
+            id="field_totalPurchases"
+            data-cy="totalPurchases"
+            formControlName="totalPurchases"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_totalSalaryPaid" jhiTranslate="inventorySystemApp.dailyCashReconciliation.totalSalaryPaid"
+            >Total Salary Paid</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalSalaryPaid"
+            id="field_totalSalaryPaid"
+            data-cy="totalSalaryPaid"
+            formControlName="totalSalaryPaid"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_ownerDeposits" jhiTranslate="inventorySystemApp.dailyCashReconciliation.ownerDeposits"
+            >Owner Deposits</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="ownerDeposits"
+            id="field_ownerDeposits"
+            data-cy="ownerDeposits"
+            formControlName="ownerDeposits"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_withdrawals" jhiTranslate="inventorySystemApp.dailyCashReconciliation.withdrawals"
+            >Withdrawals</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="withdrawals"
+            id="field_withdrawals"
+            data-cy="withdrawals"
+            formControlName="withdrawals"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_closingBalance" jhiTranslate="inventorySystemApp.dailyCashReconciliation.closingBalance"
+            >Closing Balance</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="closingBalance"
+            id="field_closingBalance"
+            data-cy="closingBalance"
+            formControlName="closingBalance"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_notes" jhiTranslate="inventorySystemApp.dailyCashReconciliation.notes">Notes</label>
+          <input type="text" class="form-control" name="notes" id="field_notes" data-cy="notes" formControlName="notes" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_active" jhiTranslate="inventorySystemApp.dailyCashReconciliation.active">Active</label>
+          <input type="checkbox" class="form-check" name="active" id="field_active" data-cy="active" formControlName="active" />
+        </div>
+
+        @if (editForm.controls.createdBy.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_createdBy" jhiTranslate="inventorySystemApp.dailyCashReconciliation.createdBy"
+              >Created By</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="createdBy"
+              id="field_createdBy"
+              data-cy="createdBy"
+              formControlName="createdBy"
+              [readonly]="true"
+            />
+          </div>
+        }
+
+        @if (editForm.controls.createdDate.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_createdDate" jhiTranslate="inventorySystemApp.dailyCashReconciliation.createdDate"
+              >Created Date</label
+            >
+            <div class="d-flex">
+              <input
+                id="field_createdDate"
+                data-cy="createdDate"
+                type="datetime-local"
+                class="form-control"
+                name="createdDate"
+                formControlName="createdDate"
+                placeholder="YYYY-MM-DD HH:mm"
+                [readonly]="true"
+              />
+            </div>
+          </div>
+        }
+
+        @if (editForm.controls.lastModifiedBy.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_lastModifiedBy" jhiTranslate="inventorySystemApp.dailyCashReconciliation.lastModifiedBy"
+              >Last Modified By</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="lastModifiedBy"
+              id="field_lastModifiedBy"
+              data-cy="lastModifiedBy"
+              formControlName="lastModifiedBy"
+              [readonly]="true"
+            />
+          </div>
+        }
+
+        @if (editForm.controls.lastModifiedDate.value !== null) {
+          <div class="mb-3">
+            <label
+              class="form-label"
+              for="field_lastModifiedDate"
+              jhiTranslate="inventorySystemApp.dailyCashReconciliation.lastModifiedDate"
+              >Last Modified Date</label
+            >
+            <div class="d-flex">
+              <input
+                id="field_lastModifiedDate"
+                data-cy="lastModifiedDate"
+                type="datetime-local"
+                class="form-control"
+                name="lastModifiedDate"
+                formControlName="lastModifiedDate"
+                placeholder="YYYY-MM-DD HH:mm"
+                [readonly]="true"
+              />
+            </div>
+          </div>
+        }
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">الغاء</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">حفظ</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

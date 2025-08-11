@@ -11,25 +11,18 @@ import { ItemCountComponent } from 'app/shared/pagination';
 import { FormsModule } from '@angular/forms';
 import { ITEMS_PER_PAGE, PAGE_HEADER, TOTAL_COUNT_RESPONSE_HEADER } from 'app/config/pagination.constants';
 import { DEFAULT_SORT_DATA, ITEM_DELETED_EVENT, SORT } from 'app/config/navigation.constants';
-import { FilterComponent, FilterOptions, IFilterOption, IFilterOptions } from 'app/shared/filter';
+import { FilterField, FilterOptions, IFilterOption, IFilterOptions } from 'app/shared/filter';
 import { IProduct } from '../product.model';
+import { FilterFormComponent } from 'app/shared/filter/filter-form.component';
 
 import { EntityArrayResponseType, ProductService } from '../service/product.service';
 import { ProductDeleteDialogComponent } from '../delete/product-delete-dialog.component';
+import { BrandService } from 'app/entities/brand/service/brand.service';
 
 @Component({
   selector: 'jhi-product',
   templateUrl: './product.component.html',
-  imports: [
-    RouterModule,
-    FormsModule,
-    SharedModule,
-    SortDirective,
-    SortByDirective,
-    FormatMediumDatetimePipe,
-    FilterComponent,
-    ItemCountComponent,
-  ],
+  imports: [RouterModule, FormsModule, SharedModule, SortDirective, SortByDirective, FilterFormComponent, ItemCountComponent],
 })
 export class ProductComponent implements OnInit {
   subscription: Subscription | null = null;
@@ -38,6 +31,11 @@ export class ProductComponent implements OnInit {
 
   sortState = sortStateSignal({});
   filters: IFilterOptions = new FilterOptions();
+  filterFields: FilterField[] = [
+    { key: 'name', labelKey: 'product.name', type: 'text' },
+    { key: 'code', labelKey: 'product.code', type: 'text' },
+    { key: 'brandId', labelKey: 'product.brand', type: 'select', options: [] },
+  ];
 
   itemsPerPage = ITEMS_PER_PAGE;
   totalItems = 0;
@@ -49,6 +47,7 @@ export class ProductComponent implements OnInit {
   protected readonly sortService = inject(SortService);
   protected modalService = inject(NgbModal);
   protected ngZone = inject(NgZone);
+  protected brandService = inject(BrandService);
 
   trackId = (item: IProduct): number => this.productService.getProductIdentifier(item);
 
@@ -59,6 +58,17 @@ export class ProductComponent implements OnInit {
         tap(() => this.load()),
       )
       .subscribe();
+
+    this.brandService.query().subscribe(res => {
+      const brandField = this.filterFields.find(f => f.key === 'brandId');
+      if (brandField) {
+        brandField.options =
+          res.body?.map(b => ({
+            value: b.id,
+            label: b.name,
+          })) ?? [];
+      }
+    });
 
     this.filters.filterChanges.subscribe(filterOptions => this.handleNavigation(1, this.sortState(), filterOptions));
   }

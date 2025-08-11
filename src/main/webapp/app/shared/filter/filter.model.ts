@@ -30,7 +30,7 @@ export interface FilterField {
   key: string;
   labelKey?: string;
   type: 'text' | 'select';
-  options?: { value: string | number; label: string }[];
+  options?: { value?: string | number; label: string | null | undefined }[];
 }
 
 export class FilterOption implements IFilterOption {

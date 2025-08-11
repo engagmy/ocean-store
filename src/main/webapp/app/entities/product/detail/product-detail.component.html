@@ -35,7 +35,7 @@
           <dd>
             <span>{{ productRef.costPrice }}</span>
           </dd>
-          <dt><span jhiTranslate="inventorySystemApp.product.active">Active</span></dt>
+          <dt><input type="checkbox" [checked]="productRef.active" (click)="$event.preventDefault()" /></dt>
           <dd>
             <span>{{ productRef.active }}</span>
           </dd>
@@ -59,7 +59,7 @@
           <dd>
             @if (product()!.brand) {
               <div>
-                <a [routerLink]="['/brand', product()!.brand?.id, 'view']">{{ productRef.brand?.id }}</a>
+                <a [routerLink]="['/brand', product()!.brand?.id, 'view']">{{ productRef.brand?.name }}</a>
               </div>
             }
           </dd>
@@ -67,7 +67,7 @@
           <dd>
             @if (product()!.productCategory) {
               <div>
-                <a [routerLink]="['/product-category', product()!.productCategory?.id, 'view']">{{ productRef.productCategory?.id }}</a>
+                <a [routerLink]="['/product-category', product()!.productCategory?.id, 'view']">{{ productRef.productCategory?.name }}</a>
               </div>
             }
           </dd>

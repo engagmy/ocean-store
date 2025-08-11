@@ -23,7 +23,7 @@
           </dd>
           <dt><span jhiTranslate="inventorySystemApp.productCategory.active">Active</span></dt>
           <dd>
-            <span>{{ productCategoryRef.active }}</span>
+            <input type="checkbox" [checked]="productCategoryRef.active" (click)="$event.preventDefault()" />
           </dd>
           <dt><span jhiTranslate="inventorySystemApp.productCategory.createdBy">Created By</span></dt>
           <dd>

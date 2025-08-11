@@ -14,8 +14,8 @@ export interface IProduct {
   createdDate?: dayjs.Dayjs | null;
   lastModifiedBy?: string | null;
   lastModifiedDate?: dayjs.Dayjs | null;
-  brand?: Pick<IBrand, 'id'> | null;
-  productCategory?: Pick<IProductCategory, 'id'> | null;
+  brand?: IBrand | null;
+  productCategory?: IProductCategory | null;
 }
 
 export type NewProduct = Omit<IProduct, 'id'> & { id: null };

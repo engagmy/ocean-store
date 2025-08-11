@@ -21,7 +21,7 @@
           </dd>
           <dt><span jhiTranslate="inventorySystemApp.brand.active">Active</span></dt>
           <dd>
-            <i class="pi" [ngClass]="brandRef.active ? 'pi-check-square' : 'pi-square'"></i>
+            <input type="checkbox" [checked]="brandRef.active" (click)="$event.preventDefault()" />
           </dd>
           <dt><span jhiTranslate="inventorySystemApp.brand.createdBy">Created By</span></dt>
           <dd>

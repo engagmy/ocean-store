@@ -24,7 +24,14 @@
 
   <jhi-alert />
 
-  <jhi-filter [filters]="filters" />
+  <!--  <jhi-filter [filters]="filters" />-->
+
+  <jhi-filter-form
+    [filters]="filters"
+    [fields]="filterFields"
+    (filterSubmit)="handleNavigation(1, sortState(), filters.filterOptions)"
+    (filterReset)="handleNavigation(1, sortState(), filters.filterOptions)"
+  />
 
   @if (productCategories().length === 0) {
     <div class="alert alert-warning" id="no-result">
@@ -56,34 +63,6 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="createdBy">
-              <div class="d-flex">
-                <span jhiTranslate="inventorySystemApp.productCategory.createdBy">Created By</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="createdDate">
-              <div class="d-flex">
-                <span jhiTranslate="inventorySystemApp.productCategory.createdDate">Created Date</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="lastModifiedBy">
-              <div class="d-flex">
-                <span jhiTranslate="inventorySystemApp.productCategory.lastModifiedBy">Last Modified By</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="lastModifiedDate">
-              <div class="d-flex">
-                <span jhiTranslate="inventorySystemApp.productCategory.lastModifiedDate">Last Modified Date</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -94,11 +73,9 @@
                 <a [routerLink]="['/product-category', productCategory.id, 'view']">{{ productCategory.id }}</a>
               </td>
               <td>{{ productCategory.name }}</td>
-              <td>{{ productCategory.active }}</td>
-              <td>{{ productCategory.createdBy }}</td>
-              <td>{{ productCategory.createdDate | formatMediumDatetime }}</td>
-              <td>{{ productCategory.lastModifiedBy }}</td>
-              <td>{{ productCategory.lastModifiedDate | formatMediumDatetime }}</td>
+              <td>
+                <input type="checkbox" [checked]="productCategory.active" (click)="$event.preventDefault()" />
+              </td>
               <td class="text-end">
                 <div class="btn-group">
                   <button

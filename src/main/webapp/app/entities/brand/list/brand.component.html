@@ -74,7 +74,7 @@
               </td>
               <td>{{ brand.name }}</td>
               <td>
-                <i class="pi" [ngClass]="brand.active ? 'pi-check-square' : 'pi-square'"></i>
+                <input type="checkbox" [checked]="brand.active" (click)="$event.preventDefault()" />
               </td>
               <td class="text-end">
                 <div class="btn-group">

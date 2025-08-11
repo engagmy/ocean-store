@@ -24,7 +24,14 @@
 
   <jhi-alert />
 
-  <jhi-filter [filters]="filters" />
+  <!--  <jhi-filter [filters]="filters" />-->
+
+  <jhi-filter-form
+    [filters]="filters"
+    [fields]="filterFields"
+    (filterSubmit)="handleNavigation(1, sortState(), filters.filterOptions)"
+    (filterReset)="handleNavigation(1, sortState(), filters.filterOptions)"
+  />
 
   @if (products().length === 0) {
     <div class="alert alert-warning" id="no-result">
@@ -84,34 +91,6 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="createdBy">
-              <div class="d-flex">
-                <span jhiTranslate="inventorySystemApp.product.createdBy">Created By</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="createdDate">
-              <div class="d-flex">
-                <span jhiTranslate="inventorySystemApp.product.createdDate">Created Date</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="lastModifiedBy">
-              <div class="d-flex">
-                <span jhiTranslate="inventorySystemApp.product.lastModifiedBy">Last Modified By</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="lastModifiedDate">
-              <div class="d-flex">
-                <span jhiTranslate="inventorySystemApp.product.lastModifiedDate">Last Modified Date</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
             <th scope="col" jhiSortBy="brand.id">
               <div class="d-flex">
                 <span jhiTranslate="inventorySystemApp.product.brand">Brand</span>
@@ -138,22 +117,18 @@
               <td>{{ product.quantity }}</td>
               <td>{{ product.unitPrice }}</td>
               <td>{{ product.costPrice }}</td>
-              <td>{{ product.active }}</td>
-              <td>{{ product.createdBy }}</td>
-              <td>{{ product.createdDate | formatMediumDatetime }}</td>
-              <td>{{ product.lastModifiedBy }}</td>
-              <td>{{ product.lastModifiedDate | formatMediumDatetime }}</td>
+              <td><input type="checkbox" [checked]="product.active" (click)="$event.preventDefault()" /></td>
               <td>
                 @if (product.brand) {
                   <div>
-                    <a [routerLink]="['/brand', product.brand.id, 'view']">{{ product.brand.id }}</a>
+                    <a [routerLink]="['/brand', product.brand.id, 'view']">{{ product.brand.name }}</a>
                   </div>
                 }
               </td>
               <td>
                 @if (product.productCategory) {
                   <div>
-                    <a [routerLink]="['/product-category', product.productCategory.id, 'view']">{{ product.productCategory.id }}</a>
+                    <a [routerLink]="['/product-category', product.productCategory.id, 'view']">{{ product.productCategory.name }}</a>
                   </div>
                 }
               </td>

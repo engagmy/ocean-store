@@ -6,13 +6,13 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import SharedModule from 'app/shared/shared.module';
 import { SortByDirective, SortDirective, SortService, type SortState, sortStateSignal } from 'app/shared/sort';
-import { FormatMediumDatetimePipe } from 'app/shared/date';
 import { ItemCountComponent } from 'app/shared/pagination';
 import { FormsModule } from '@angular/forms';
 import { ITEMS_PER_PAGE, PAGE_HEADER, TOTAL_COUNT_RESPONSE_HEADER } from 'app/config/pagination.constants';
 import { DEFAULT_SORT_DATA, ITEM_DELETED_EVENT, SORT } from 'app/config/navigation.constants';
-import { FilterComponent, FilterOptions, IFilterOption, IFilterOptions } from 'app/shared/filter';
+import { FilterField, FilterOptions, IFilterOption, IFilterOptions } from 'app/shared/filter';
 import { IProductCategory } from '../product-category.model';
+import { FilterFormComponent } from 'app/shared/filter/filter-form.component';
 
 import { EntityArrayResponseType, ProductCategoryService } from '../service/product-category.service';
 import { ProductCategoryDeleteDialogComponent } from '../delete/product-category-delete-dialog.component';
@@ -20,16 +20,7 @@ import { ProductCategoryDeleteDialogComponent } from '../delete/product-category
 @Component({
   selector: 'jhi-product-category',
   templateUrl: './product-category.component.html',
-  imports: [
-    RouterModule,
-    FormsModule,
-    SharedModule,
-    SortDirective,
-    SortByDirective,
-    FormatMediumDatetimePipe,
-    FilterComponent,
-    ItemCountComponent,
-  ],
+  imports: [RouterModule, FormsModule, SharedModule, SortDirective, SortByDirective, FilterFormComponent, ItemCountComponent],
 })
 export class ProductCategoryComponent implements OnInit {
   subscription: Subscription | null = null;
@@ -38,6 +29,7 @@ export class ProductCategoryComponent implements OnInit {
 
   sortState = sortStateSignal({});
   filters: IFilterOptions = new FilterOptions();
+  filterFields: FilterField[] = [{ key: 'name', labelKey: 'productCategory.name', type: 'text' }];
 
   itemsPerPage = ITEMS_PER_PAGE;
   totalItems = 0;

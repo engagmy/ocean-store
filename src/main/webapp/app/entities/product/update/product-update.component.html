@@ -193,7 +193,7 @@
           <select class="form-control" id="field_brand" data-cy="brand" name="brand" formControlName="brand" [compareWith]="compareBrand">
             <option [ngValue]="null"></option>
             @for (brandOption of brandsSharedCollection; track $index) {
-              <option [ngValue]="brandOption">{{ brandOption.id }}</option>
+              <option [ngValue]="brandOption">{{ brandOption.name }}</option>
             }
           </select>
         </div>
@@ -212,7 +212,7 @@
           >
             <option [ngValue]="null"></option>
             @for (productCategoryOption of productCategoriesSharedCollection; track $index) {
-              <option [ngValue]="productCategoryOption">{{ productCategoryOption.id }}</option>
+              <option [ngValue]="productCategoryOption">{{ productCategoryOption.name }}</option>
             }
           </select>
         </div>
